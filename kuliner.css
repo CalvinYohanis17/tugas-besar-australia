@@ -28,7 +28,7 @@ body {
     padding: 0 24px;
 }
 
-/* --- FITUR: Flexbox Navigation --- */
+/* --- NAVIGASI: Flexbox & Responsive Mobile Menu --- */
 .navbar {
     background-color: #ffffff;
     border-bottom: 1px solid #E5E7EB;
@@ -44,6 +44,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 24px;
+    position: relative;
 }
 
 .logo {
@@ -54,10 +55,42 @@ body {
     letter-spacing: 1px;
 }
 
+/* Tombol Burger Menu (Sembunyi secara default di PC) */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 110;
+}
+
+.burger-menu div {
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+/* Struktur Nav-Links Mengutamakan Tampilan HP (Mobile First) */
 .nav-links {
-    display: flex;
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 24px;
+    border-bottom: 1px solid #E5E7EB;
+    gap: 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
     list-style: none;
-    gap: 32px;
+}
+
+/* Class bantuan pemicu aktifnya menu di HP via JS */
+.nav-links.mobile-active {
+    display: flex;
 }
 
 .nav-links a {
@@ -65,29 +98,38 @@ body {
     color: #4B5563;
     font-weight: 500;
     font-size: 0.95rem;
-    /* FITUR: Transitions */
     transition: color 0.3s ease;
+    display: block;
 }
 
 .nav-links a:hover, .nav-links a.active {
     color: var(--primary-blue);
 }
 
-/* --- FITUR: Dropdown Styling --- */
+/* Animasi perubahan bentuk burger menjadi tanda silang (X) */
+.burger-menu.active-burger .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+.burger-menu.active-burger .line2 {
+    opacity: 0;
+}
+.burger-menu.active-burger .line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
+/* --- DROPDOWN NAVIGATION --- */
 .dropdown {
     position: relative;
 }
 
 .dropdown-content {
     display: none;
-    position: absolute;
-    background-color: #ffffff;
+    background-color: #F9FAFB;
     min-width: 200px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     border-radius: 8px;
     overflow: hidden;
-    margin-top: 12px;
-    border: 1px solid #E5E7EB;
+    margin-top: 8px;
+    padding-left: 12px;
 }
 
 .dropdown-content a {
@@ -102,12 +144,12 @@ body {
     color: var(--primary-blue);
 }
 
-/* Class bantuan JavaScript untuk toggle menu */
+/* Class pembantu untuk toggle dropdown via click di HP */
 .show-dropdown {
-    display: block;
+    display: block !important;
 }
 
-/* --- HERO & FITUR: Text Effect --- */
+/* --- HERO SECTION --- */
 .hero {
     padding: 80px 0 60px 0;
 }
@@ -118,7 +160,6 @@ body {
     color: var(--primary-blue);
     line-height: 1.15;
     margin-bottom: 24px;
-    /* Efek bayangan tipis profesional */
     text-shadow: 1px 1px 2px rgba(10, 25, 49, 0.05);
 }
 
@@ -133,12 +174,19 @@ body {
     font-weight: 300;
 }
 
-/* --- FITUR: Grid Layout & Cards --- */
-.sejarah-grid {
+/* --- GRID LAYOUT & KARTU KULINER --- */
+.kuliner-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Konsep Mobile First */
+    grid-template-columns: 1fr; /* 1 Kolom untuk tampilan HP */
     gap: 40px;
     margin-bottom: 80px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
 }
 
 .sejarah-card {
@@ -147,13 +195,17 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     border: 1px solid #E5E7EB;
-    /* FITUR: Transitions */
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
+/* Efek Sorot Pada Kartu */
 .sejarah-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.07);
+    border-color: var(--accent-gold); /* Mengubah border samping kartu menjadi warna emas */
 }
 
 .card-img-wrapper {
@@ -168,8 +220,9 @@ body {
     transition: transform 0.5s ease;
 }
 
-.sejarah-card:hover .card-img {
-    transform: scale(1.03);
+/* Efek zoom-in halus pada gambar saat kartu di-hover */
+.card-link:hover .card-img {
+    transform: scale(1.04);
 }
 
 .card-tag {
@@ -183,10 +236,14 @@ body {
     font-weight: 600;
     border-radius: 4px;
     letter-spacing: 0.5px;
+    z-index: 2;
 }
 
 .card-body {
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .card-body h2 {
@@ -200,146 +257,24 @@ body {
     color: #4B5563;
     font-size: 0.95rem;
     margin-bottom: 24px;
+    flex-grow: 1; /* Membuat teks deskripsi fleksibel mengisi ruang */
 }
 
-/* --- FITUR: Buttons --- */
-.btn-primary {
-    background: transparent;
-    border: 1px solid var(--primary-blue);
-    color: var(--primary-blue);
-    padding: 12px 24px;
+/* Petunjuk Teks Bagian Bawah */
+.kuliner-more {
     font-size: 0.9rem;
     font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-blue);
-    color: #ffffff;
-}
-
-/* --- DYNAMIC ARTEFAK SECTION (FITUR: List) --- */
-.artefak-section {
-    margin-bottom: 80px;
-}
-
-.section-header {
-    margin-bottom: 32px;
-}
-
-.section-header h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
     color: var(--primary-blue);
-    margin-bottom: 8px;
+    transition: color 0.3s ease;
+    margin-top: auto;
+    display: inline-block;
 }
 
-.artefak-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.card-link:hover .kuliner-more {
+    color: var(--accent-gold); /* Berubah menjadi emas saat disorot */
 }
 
-.artefak-item {
-    background: #ffffff;
-    padding: 20px 24px;
-    border-radius: 8px;
-    border: 1px solid #E5E7EB;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.artefak-title {
-    font-weight: 600;
-    color: var(--primary-blue);
-}
-
-.artefak-desc {
-    font-size: 0.85rem;
-    color: #6B7280;
-}
-
-/* --- FITUR: Form Styling --- */
-.form-section {
-    background-color: var(--primary-blue);
-    color: #ffffff;
-    border-radius: 16px;
-    padding: 40px 24px;
-    margin-bottom: 80px;
-}
-
-.form-info h2 {
-    font-family: var(--font-heading);
-    font-size: 2rem;
-    margin-bottom: 12px;
-    color: var(--accent-gold);
-}
-
-.form-info p {
-    color: #9CA3AF;
-    margin-bottom: 32px;
-}
-
-#guestbook-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-group label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #E5E7EB;
-}
-
-.form-group input, .form-group select, .form-group textarea {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 14px;
-    border-radius: 6px;
-    color: #ffffff;
-    font-size: 0.95rem;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: var(--accent-gold);
-}
-
-.form-group select option {
-    background-color: var(--primary-blue);
-    color: #ffffff;
-}
-
-.btn-submit {
-    background-color: var(--accent-gold);
-    color: var(--primary-blue);
-    border: none;
-    padding: 16px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    margin-top: 10px;
-}
-
-.btn-submit:hover {
-    opacity: 0.9;
-}
-
-/* --- FITUR: Animations (@keyframes) --- */
+/* --- ANIMASI (@keyframes) --- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -355,26 +290,7 @@ body {
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* --- FITUR: Media Queries (Desktop Expansion) --- */
-@media (min-width: 768px) {
-    .hero {
-        padding: 120px 0 80px 0;
-    }
-    .text-effect {
-        font-size: 4.5rem;
-    }
-    .sejarah-grid {
-        grid-template-columns: repeat(2, 1fr); /* Berubah jadi 2 kolom di desktop */
-    }
-    .form-section {
-        padding: 60px;
-    }
-    #guestbook-form {
-        max-width: 600px;
-    }
-}
-
-/* FOOTER STYLING */
+/* --- STYLING FOOTER --- */
 .footer {
     background-color: #ffffff;
     border-top: 1px solid #E5E7EB;
@@ -398,9 +314,60 @@ body {
 .footer-links a {
     color: #6B7280;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
+.footer-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Aturan Ekspansi khusus Desktop / Layar Lebar >= 768px)
+   ========================================================================== */
 @media (min-width: 768px) {
+    .burger-menu {
+        display: none !important;
+    }
+
+    .nav-links {
+        display: flex; /* Navigasi kembali berjejer horizontal normal */
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+        gap: 32px;
+        border: none;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        background-color: #ffffff;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        border: 1px solid #E5E7EB;
+        margin-top: 12px;
+        padding-left: 0;
+    }
+
+    /* Pemicu dropdown otomatis muncul lewat Hover pada mode PC */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .hero {
+        padding: 120px 0 80px 0;
+    }
+
+    .text-effect {
+        font-size: 4.5rem;
+    }
+
+    /* Khusus halaman kuliner: Melebar rapi menjadi susunan 3 kolom berjejer */
+    .kuliner-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .footer-container {
         flex-direction: row;
         justify-content: space-between;

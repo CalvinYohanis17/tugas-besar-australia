@@ -3,52 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesona Budaya Australia - Tugas Besar</title>
+    <title>Pesona Budaya Australia — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<nav class="navbar">
-        <div class="logo">AussieCulture</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="sejarah.html" class="active">Sejarah</a></li>
-            <li><a href="#">Budaya</a></li>
-            <li><a href="#">Kuliner</a></li>
-        </ul>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">AussieCulture.</div>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="#" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="#" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="#" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="kuliner.html">Kuliner</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <main class="container">
-        <header class="sejarah-header">
-            <h1 class="text-effect">Sejarah Ringkas Australia</h1>
-            <p>Satu Daratan, Dua Kisah Ekstrim yang Membentuk Peradaban Bangsa</p>
-        </header>
+    <header class="hero container animate-fade">
+        <div class="hero-content">
+            <h1 class="text-effect">Eksplorasi<br><span class="highlight">Budaya Australia.</span></h1>
+            <p class="hero-lead">Menjembatani kisah peradaban tertua di bumi dengan mozaik modernitas kolonial modern belahan selatan dunia.</p>
+        </div>
+    </header>
 
+    <main class="container">
+        
         <section class="sejarah-grid">
             
-            <div class="sejarah-card">
-                <div class="card-image">
-                    <img src="photo/suku-aborigin.jpg" alt="Suku Aborigin Australia">
+            <div class="sejarah-card" id="card-aborigin">
+                <div class="card-img-wrapper">
+                    <img src="photo/suku-aborigin.jpg" alt="Suku Aborigin Australia" class="card-img">
+                    <span class="card-tag">65.000+ TAHUN LALU</span>
                 </div>
-                <div class="card-content">
-                    <h2>1. Era Pribumi (65.000+ Tahun Lalu)</h2>
-                    <p>Sebelum bangsa Eropa datang, Australia telah dihuni oleh suku Aborigin dan Penduduk Kepulauan Selat Torres. Mereka memiliki budaya spiritual yang sangat terikat dengan tanah leluhur (Dreamtime) dan merupakan salah satu peradaban tertua yang masih hidup di bumi.</p>
-                    <button class="btn-learn" onclick="tampilPesan('aborigin')">Pelajari Dreamtime</button>
+                <div class="card-body">
+                    <h2>Era Pribumi & Tradisi Kartografi Dreamtime</h2>
+                    <p>Sebelum gelombang migrasi global, daratan benua ini dijaga oleh suku Aborigin dan Penduduk Kepulauan Selat Torres. Mereka merajut ikatan spiritual tak terpisahkan melalui kisah mitologi penciptaan bumi purba.</p>
+                    <button class="btn-primary" onclick="bacaEksplorasi('aborigin')">Pelajari Dreamtime →</button>
                 </div>
             </div>
 
-            <div class="sejarah-card">
-                <div class="card-image">
-                    <img src="photo/captain-cook.jpg" alt="Kedatangan Kapten Cook">
+            <div class="sejarah-card" id="card-kolonial">
+                <div class="card-img-wrapper">
+                    <img src="photo/captain-cook.jpg" alt="Era Kolonial Australia" class="card-img">
+                    <span class="card-tag">MULAI 1788</span>
                 </div>
-                <div class="card-content">
-                    <h2>2. Era Kolonisasi & Modern (1788)</h2>
-                    <p>Sejarah modern dimulai ketika Kapten James Cook mengklaim pantai timur untuk Britania Raya pada tahun 1770. Pada 26 Januari 1788 (kini diperingati sebagai Australia Day), Armada Pertama tiba dan menjadikan Australia sebagai tempat pembuangan tahanan (penal colony) sebelum akhirnya berkembang menjadi negara multikultural yang maju.</p>
-                    <button class="btn-learn" onclick="tampilPesan('modern')">Garis Waktu Sejarah</button>
+                <div class="card-body">
+                    <h2>Era Kolonisasi, Arsitektur, & Fusi Modern</h2>
+                    <p>Berlabuhnya Armada Pertama (First Fleet) di bawah bendera Britania Raya memicu fusi budaya baru. Relik pemukiman narapidana berasimilasi membentuk fondasi masyarakat multikultural modern Australia hari ini.</p>
+                    <button class="btn-primary" onclick="bacaEksplorasi('kolonial')">Garis Waktu Sejarah →</button>
                 </div>
             </div>
 
         </section>
+
+        <section class="artefak-section">
+            <div class="section-header">
+                <h2>Artefak & Simbol Budaya</h2>
+                <p style="color: #6B7280; font-size: 0.95rem;">Daftar elemen kebudayaan material yang dirender secara dinamis melalui JavaScript looping.</p>
+            </div>
+            
+            <ul class="artefak-list" id="dynamic-list"></ul>
+        </section>
+
     </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+            <div class="footer-links">
+                <a href="#">Dokumentasi GitHub</a>
+                <a href="#">Daftar Sitasi</a>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
