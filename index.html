@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">AussieCulture.</div>
@@ -43,8 +42,45 @@
 
     <main class="container">
         
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+
+    <div class="scroll-line"></div>
+
+    <header class="hero container animate-fade">
+        <div class="hero-content">
+            <h1 class="text-effect">Eksplorasi<br><span class="highlight text-gradient">Budaya Australia.</span></h1>
+            <p class="hero-lead">Menjembatani kisah peradaban tertua di bumi dengan mozaik modernitas kolonial modern belahan selatan dunia.</p>
+        </div>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>• INDIGENOUS DREAMTIME AUSTRALIA (65.000+ YRS AGO) </span>
+            <span>• THE FIRST FLEET ARRIVAL (1788) </span>
+            <span>• THE GREAT AUSTRALIAN GOLD RUSH (1851) </span>
+            <span>• FEDERATION OF AUSTRALIA (1901) </span>
+            <span>• MODERN MULTICULTURAL ERA (2026) </span>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <section class="stats-section">
+            <div class="stat-box">
+                <h3 class="stat-number" data-target="65000">0</h3>
+                <p>Tahun Warisan Aborigin</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="stat-number" data-target="1788">0</h3>
+                <p>Pendirian Sydney Cove</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="stat-number" data-target="250">0</h3>
+                <p>Bahasa Suku Lokal Purba</p>
+            </div>
+        </section>
+
         <section class="sejarah-grid">
-            
             <div class="sejarah-card" id="card-aborigin">
                 <div class="card-img-wrapper">
                     <img src="photo/suku-aborigin.jpg" alt="Suku Aborigin Australia" class="card-img">
@@ -68,18 +104,52 @@
                     <button class="btn-primary" onclick="bacaEksplorasi('kolonial')">Garis Waktu Sejarah →</button>
                 </div>
             </div>
-
         </section>
+
+        <div class="quote-banner">
+            <span class="quote-tag">FAKTA HARI INI</span>
+            <p id="live-quote">"Uluru bukan sekadar batu, melainkan sebuah entitas hidup tempat bermulanya hukum Dreamtime bagi suku Anangu."</p>
+        </div>
 
         <section class="artefak-section">
             <div class="section-header">
                 <h2>Artefak & Simbol Budaya</h2>
                 <p style="color: #6B7280; font-size: 0.95rem;">Daftar elemen kebudayaan material yang dirender secara dinamis melalui JavaScript looping.</p>
             </div>
-            
             <ul class="artefak-list" id="dynamic-list"></ul>
         </section>
 
+        <section class="form-section">
+            <div class="form-info">
+                <h2>Registrasi Penjelajah Digital</h2>
+                <p>Tinggalkan jejak kultural Anda. Pilih topik sejarah Australia yang paling memikat perhatian Anda untuk mendapatkan buletin eksklusif kurasi museum.</p>
+            </div>
+            
+            <form id="guestbook-form" onsubmit="validasiForm(event)">
+                <div class="form-group">
+                    <label for="username">Nama Lengkap</label>
+                    <input type="text" id="username" placeholder="Masukkan nama Anda..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-interest">Sektor Minat Sejarah</label>
+                    <select id="user-interest" required>
+                        <option value="" disabled selected>-- Pilih Fokus Minat --</option>
+                        <option value="Antropologi Aborigin">Antropologi Aborigin (65.000+ Tahun Lalu)</option>
+                        <option value="Navigasi Maritim Kolonial">Navigasi Maritim & Kolonialisme (Mulai 1788)</option>
+                        <option value="Demam Emas (Gold Rush)">Era Demam Emas & Migrasi Global (1851)</option>
+                        <option value="Fusi Modern Kontemporer">Seni Komunitas Kontemporer & Multikultural</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="user-message">Pesan / Refleksi Budaya</label>
+                    <textarea id="user-message" rows="4" placeholder="Apa yang Anda pikirkan tentang sejarah benua selatan ini?" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Kirim Dokumen Penjelajah</button>
+            </form>
+        </section>
     </main>
 
     <footer class="footer">

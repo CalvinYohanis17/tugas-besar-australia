@@ -44,6 +44,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 24px;
+    position: relative;
 }
 
 .logo {
@@ -54,10 +55,42 @@ body {
     letter-spacing: 1px;
 }
 
+/* Tombol Burger Menu (Sembunyi secara default di PC) */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 110;
+}
+
+.burger-menu div {
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transition: all 0.3s ease;
+}
+
+/* Struktur Nav-Links Mengutamakan Tampilan HP (Mobile First) */
 .nav-links {
-    display: flex;
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 24px;
+    border-bottom: 1px solid #E5E7EB;
+    gap: 20px;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
     list-style: none;
-    gap: 32px;
+}
+
+/* Class bantuan pemicu aktifnya menu di HP via JS */
+.nav-links.mobile-active {
+    display: flex;
 }
 
 .nav-links a {
@@ -65,12 +98,23 @@ body {
     color: #4B5563;
     font-weight: 500;
     font-size: 0.95rem;
-    /* FITUR: Transitions */
     transition: color 0.3s ease;
+    display: block;
 }
 
 .nav-links a:hover, .nav-links a.active {
     color: var(--primary-blue);
+}
+
+/* Animasi perubahan bentuk burger menjadi tanda silang (X) */
+.burger-menu.active-burger .line1 {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+.burger-menu.active-burger .line2 {
+    opacity: 0;
+}
+.burger-menu.active-burger .line3 {
+    transform: rotate(45deg) translate(-5px, -5px);
 }
 
 /* --- FITUR: Dropdown Styling --- */
@@ -80,14 +124,12 @@ body {
 
 .dropdown-content {
     display: none;
-    position: absolute;
-    background-color: #ffffff;
+    background-color: #F9FAFB;
     min-width: 200px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     border-radius: 8px;
     overflow: hidden;
-    margin-top: 12px;
-    border: 1px solid #E5E7EB;
+    margin-top: 8px;
+    padding-left: 12px;
 }
 
 .dropdown-content a {
@@ -102,9 +144,9 @@ body {
     color: var(--primary-blue);
 }
 
-/* Class bantuan JavaScript untuk toggle menu */
+/* Class pembantu untuk toggle dropdown via click di HP */
 .show-dropdown {
-    display: block;
+    display: block !important;
 }
 
 /* --- HERO & FITUR: Text Effect --- */
@@ -118,7 +160,6 @@ body {
     color: var(--primary-blue);
     line-height: 1.15;
     margin-bottom: 24px;
-    /* Efek bayangan tipis profesional */
     text-shadow: 1px 1px 2px rgba(10, 25, 49, 0.05);
 }
 
@@ -134,11 +175,18 @@ body {
 }
 
 /* --- FITUR: Grid Layout & Cards --- */
-.sejarah-grid {
+.sejarah-grid, .kuliner-grid {
     display: grid;
     grid-template-columns: 1fr; /* Konsep Mobile First */
     gap: 40px;
     margin-bottom: 80px;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
 }
 
 .sejarah-card {
@@ -147,13 +195,16 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     border: 1px solid #E5E7EB;
-    /* FITUR: Transitions */
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .sejarah-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.07);
+    border-color: var(--accent-gold);
 }
 
 .card-img-wrapper {
@@ -168,8 +219,8 @@ body {
     transition: transform 0.5s ease;
 }
 
-.sejarah-card:hover .card-img {
-    transform: scale(1.03);
+.card-link:hover .card-img, .sejarah-card:hover .card-img {
+    transform: scale(1.04);
 }
 
 .card-tag {
@@ -183,10 +234,14 @@ body {
     font-weight: 600;
     border-radius: 4px;
     letter-spacing: 0.5px;
+    z-index: 2;
 }
 
 .card-body {
     padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .card-body h2 {
@@ -200,6 +255,20 @@ body {
     color: #4B5563;
     font-size: 0.95rem;
     margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.kuliner-more {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    transition: color 0.3s ease;
+    margin-top: auto;
+    display: inline-block;
+}
+
+.card-link:hover .kuliner-more {
+    color: var(--accent-gold);
 }
 
 /* --- FITUR: Buttons --- */
@@ -213,6 +282,7 @@ body {
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
+    align-self: flex-start;
 }
 
 .btn-primary:hover {
@@ -270,6 +340,171 @@ body {
     border-radius: 16px;
     padding: 40px 24px;
     margin-bottom: 80px;
+}
+
+/* --- FITUR: Dropdown Styling --- */
+.dropdown {
+    position: relative;
+    padding-bottom: 15px; /* Trik: Memberi area hover bayangan ke bawah agar tidak putus */
+    margin-bottom: -15px; /* Mengimbangi padding agar posisi nav-links tetap sejajar */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;   /* Memastikan posisi melayang di desktop */
+    background-color: #ffffff;
+    min-width: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    top: 100%;            /* Memaksa menu muncul tepat di bawah pembungkus .dropdown */
+    right: 0;             /* Membuat dropdown rata kanan agar rapi */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    border: 1px solid #E5E7EB;
+    z-index: 200;
+}
+
+/* --- FITUR: Dropdown Styling (Solusi Absolut Fix Hover) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Jembatan Transparan Tak Kasat Mata */
+.dropdown::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 30px; /* <--- Ini jembatan setinggi 30px untuk menambal celah kosong secara total */
+    background: transparent; /* Tidak terlihat oleh user tapi dibaca oleh kursor */
+    z-index: 150;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    /* Kita geser sedikit ke bawah agar estetik tidak menempel pas di teks nav, 
+       tapi tenang, tidak akan hilang karena sudah dijaga oleh jembatan ::after di atas */
+    top: calc(100% + 10px); 
+    right: 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E5E7EB;
+    z-index: 200;
+}
+
+.sejarah-grid {
+    grid-template-columns: repeat(2, 1fr); 
+    display: flex; /* <--- ATAU baris display ini merusak struktur grid mobile-first kita */
+}
+
+/* --- FIX PROPORSI CARD --- */
+.sejarah-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    border: 1px solid #E5E7EB;
+    
+    /* Menggunakan flexbox vertikal agar bodi di dalamnya tahu batasan tinggi maksimal grid */
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.card-body {
+    padding: 32px;
+    
+    /* Trik Utama: Memaksa bodi kartu mengambil sisa ruang kosong secara adil */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+/* Menyeimbangkan ukuran judul agar serasi saat berdampingan */
+.card-body h2 {
+    font-family: var(--font-heading);
+    font-size: 1.35rem; /* <--- Ukuran diturunkan sedikit dari 1.5rem agar pas satu/dua baris seimbang */
+    color: var(--primary-blue);
+    margin-bottom: 16px;
+    line-height: 1.4;
+    min-height: 64px; /* <--- Mengunci tinggi judul agar space-nya sama rata di kedua kartu */
+}
+
+.card-body p {
+    color: #4B5563;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    
+    /* Trik Kedua: Dorong konten paragraf untuk mengisi space kosong secara fleksibel */
+    flex-grow: 1; 
+}
+
+/* Mengunci posisi tombol agar selalu presisi menempel di dasar bawah bodi kartu */
+.btn-primary {
+    background: transparent;
+    border: 1px solid var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.card-img {
+    width: 100%;
+    height: 240px; 
+    transition: transform 0.5s ease;
+}
+
+/* Pemicu Hover: Jika area .dropdown ATAU jembatan ::after terkena kursor, menu WAJIB tampil */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 16px;
+    display: block;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #F3F4F6;
+    color: var(--primary-blue);
+}
+
+/* Pastikan saat di-hover, dropdown tetap tampil stabil */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: var(--text-dark);
+    padding: 12px 16px;
+    display: block;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #F3F4F6;
+    color: var(--primary-blue);
 }
 
 .form-info h2 {
@@ -355,26 +590,7 @@ body {
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* --- FITUR: Media Queries (Desktop Expansion) --- */
-@media (min-width: 768px) {
-    .hero {
-        padding: 120px 0 80px 0;
-    }
-    .text-effect {
-        font-size: 4.5rem;
-    }
-    .sejarah-grid {
-        grid-template-columns: repeat(2, 1fr); /* Berubah jadi 2 kolom di desktop */
-    }
-    .form-section {
-        padding: 60px;
-    }
-    #guestbook-form {
-        max-width: 600px;
-    }
-}
-
-/* FOOTER STYLING */
+/* --- STYLING FOOTER --- */
 .footer {
     background-color: #ffffff;
     border-top: 1px solid #E5E7EB;
@@ -398,9 +614,262 @@ body {
 .footer-links a {
     color: #6B7280;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
+.footer-links a:hover {
+    color: var(--primary-blue);
+}
+
+/* --- ORNAMEN TAMBAHAN: FLOATING THEME TOGGLE & PROGRESS LINE --- */
+.floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-blue);
+    border: 2px solid var(--accent-gold);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    z-index: 999;
+    transition: transform 0.3s ease;
+}
+.floating-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+.scroll-line {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-gold));
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* --- TEXT GRADIENT & DECORATION --- */
+.text-gradient {
+    background: linear-gradient(45deg, #A88958, #DCC096);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* --- HIASAN 1: MULTI-SPEED RUNNING MARQUEE --- */
+.marquee-container {
+    width: 100%;
+    background-color: var(--primary-blue);
+    color: var(--accent-gold);
+    padding: 14px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(197, 168, 128, 0.3);
+    border-bottom: 1px solid rgba(197, 168, 128, 0.3);
+    margin-bottom: 50px;
+}
+.marquee-content {
+    display: inline-block;
+    animation: marqueeAnimation 25s linear infinite;
+}
+.marquee-content span {
+    padding-right: 40px;
+}
+@keyframes marqueeAnimation {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- HIASAN 2: GRID STATISTIK INTERAKTIF --- */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+}
+.stat-box {
+    background: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+}
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 5px;
+}
+.stat-box p {
+    font-size: 0.9rem;
+    color: #6B7280;
+    font-weight: 500;
+}
+
+/* --- HIASAN 3: BANNER QUOTE SEJARAH LIVE --- */
+.quote-banner {
+    background: #ffffff;
+    border-left: 5px solid var(--accent-gold);
+    padding: 24px 32px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 60px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+.quote-tag {
+    font-size: 0.7rem;
+    background: #FEF3C7;
+    color: #92400E;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+#live-quote {
+    font-style: italic;
+    font-family: var(--font-heading);
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+/* --- ARTEFAK HOVER BOUNCE EFFECT --- */
+.artefak-item {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.artefak-item:hover {
+    transform: scale(1.02) translateX(10px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* ==========================================================================
+    SISTEM INTEGRASI ENGINE DARK MODE (Variabel Pewarnaan Balik)
+   ========================================================================== */
+body.dark-theme {
+    --bg-light: #070F1E;
+    --text-dark: #E5E7EB;
+    background-color: var(--bg-light);
+}
+body.dark-theme .navbar, 
+body.dark-theme .sejarah-card, 
+body.dark-theme .stat-box, 
+body.dark-theme .quote-banner, 
+body.dark-theme .artefak-item,
+body.dark-theme .nav-links {
+    background-color: #0D1B2A;
+    border-color: #1E293B;
+    color: #F3F4F6;
+}
+body.dark-theme .nav-links a { color: #9CA3AF; }
+body.dark-theme .nav-links a:hover, body.dark-theme .nav-links a.active { color: #ffffff; }
+body.dark-theme .logo, body.dark-theme .stat-number, body.dark-theme .card-body h2, body.dark-theme .section-header h2, body.dark-theme .artefak-title {
+    color: #ffffff;
+}
+body.dark-theme .btn-primary {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+body.dark-theme .btn-primary:hover {
+    background: var(--accent-gold);
+    color: #070F1E;
+}
+body.dark-theme #live-quote { color: #D1D5DB; }
+
+/* ==========================================================================
+    MEDIA QUERIES (Aturan Ekspansi khusus Desktop / Layar Lebar >= 768px)
+   ========================================================================== */
 @media (min-width: 768px) {
+    .burger-menu {
+        display: none !important;
+    }
+
+    .sejarah-grid {
+        display: grid !important;                  /* Memaksa browser mengaktifkan mode Grid */
+        grid-template-columns: repeat(2, 1fr) !important; /* Membagi halaman menjadi 2 kolom sama rata */
+        gap: 40px;                                 /* Memberi jarak yang pas antar kartu */
+    }
+
+    .kuliner-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* Khusus kuliner langsung jadi 3 kolom */
+        gap: 30px;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        background-color: #ffffff;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        border: 1px solid #E5E7EB;
+        top: 100%;
+        right: 0;
+        padding-left: 0;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        background-color: #ffffff;
+        top: calc(100% + 10px);
+        right: 0;
+        padding-left: 0;
+    }
+
+    .nav-links {
+        display: flex; 
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+        gap: 32px;
+        border: none;
+    }
+
+    .dropdown-content {
+        position: absolute;
+        background-color: #ffffff;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        border: 1px solid #E5E7EB;
+        margin-top: 12px;
+        padding-left: 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .hero {
+        padding: 120px 0 80px 0;
+    }
+
+    .text-effect {
+        font-size: 4.5rem;
+    }
+
+    .sejarah-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .kuliner-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .form-section {
+        padding: 60px;
+    }
+
+    #guestbook-form {
+        max-width: 600px;
+    }
+
     .footer-container {
         flex-direction: row;
         justify-content: space-between;
