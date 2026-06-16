@@ -183,11 +183,11 @@ function checkHashFilter() {
 
 function generateArtefakList() {
     const dataBudaya = [
-        { nama: "Didgeridoo (Yidaki)", deskripsi: "Alat musik tiup tiang kayu kuno peradaban Aborigin utara, pembuat resonansi suara spiritual bumi." },
-        { nama: "Boomerang", deskripsi: "Senjata aerodinamis berburu tradisional yang bertransformasi menjadi simbol ritus kultural adat." },
-        { nama: "Dot Painting", deskripsi: "Seni rupa visual berbasis simbol titik-titik rahasia untuk memetakan rute sakral nenek moyang." },
-        { nama: "The First Fleet Relics", deskripsi: "Sisa peninggalan 11 kapal Inggris pertama tahun 1788 yang menandai titik awal era kolonisasi narapidana." },
-        { nama: "Sovereign Hill Gold", deskripsi: "Artefak dan replika era Eureka Rebellion (1854), tonggak pergerakan demokrasi pekerja tambang emas Australia." }
+        { nama: "Didgeridoo (Yidaki)", deskripsi: "Alat musik tiup tiang kayu kuno peradaban Aborigin utara, pembuat resonansi suara spiritual bumi.", img: "photo/didgeridoo.jpg" },
+        { nama: "Boomerang", deskripsi: "Senjata aerodinamis berburu tradisional yang bertransformasi menjadi simbol ritus kultural adat.", img: "photo/boomerang.png" },
+        { nama: "Dot Painting", deskripsi: "Seni rupa visual berbasis simbol titik-titik rahasia untuk memetakan rute sakral nenek moyang.", img: "photo/dotpainting.jpg" },
+        { nama: "The First Fleet Relics", deskripsi: "Sisa peninggalan 11 kapal Inggris pertama tahun 1788 yang menandai titik awal era kolonisasi narapidana.", img: "photo/relics.jpg" },
+        { nama: "Sovereign Hill Gold", deskripsi: "Artefak dan replika era Eureka Rebellion (1854), tonggak pergerakan demokrasi pekerja tambang emas Australia.", img: "photo/sovereign.jpg" }
     ];
 
     const listContainer = document.getElementById("dynamic-list");
@@ -200,14 +200,24 @@ function generateArtefakList() {
         const listItem = document.createElement("li");
         listItem.className = "artefak-item";
 
+        // Logika Pengecekan: Gunakan Gambar jika ada, atau gunakan SVG jika kosong
+        let mediaKonten = "";
+        if (item.img) {
+            mediaKonten = `<img src="${item.img}" alt="${item.nama}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">`;
+        } else {
+            mediaKonten = `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+            `;
+        }
+
         listItem.innerHTML = `
             <div class="artefak-content-wrapper">
-                <div class="artefak-img-placeholder" title="Tidak ada foto barang">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <polyline points="21 15 16 10 5 21"></polyline>
-                    </svg>
+                <div class="artefak-img-placeholder" title="${item.img ? item.nama : 'Tidak ada foto barang'}">
+                    ${mediaKonten}
                 </div>
                 <div class="artefak-text">
                     <span class="artefak-title">${item.nama}</span>

@@ -40,18 +40,39 @@
         </div>
     </nav>
 
-    <header class="hero container animate-fade">
-        <div class="hero-content">
-            <h1 class="text-effect">Cita Rasa<br><span class="highlight">Belahan Selatan.</span></h1>
-            <p class="hero-lead">Menjelajahi kuliner ikonik Australia yang lahir dari tradisi lokal dan fusi budaya modern dunia.</p>
+    <!-- JUMBOTRON CAROUSEL: Menggunakan kelas murni dari style.css -->
+    <header class="pure-carousel-hero container animate-fade">
+        
+        <!-- Lintasan Slider (Sesuai dengan properti 400% di style.css) -->
+        <div class="pure-css-track">
+            <!-- Slide 1: Vegemite Toast -->
+            <div class="pure-css-slide" style="background: url('photo/vegemite.jpg') center/cover no-repeat !important;"></div>
+            
+            <!-- Slide 2: Anzac Biscuits -->
+            <div class="pure-css-slide" style="background: url('photo/anzac.jpg') center/cover no-repeat !important;"></div>
+            
+            <!-- Slide 3: Lamington Cake -->
+            <div class="pure-css-slide" style="background: url('photo/lamington.jpg') center/cover no-repeat !important;"></div>
+            
+            <!-- Slide 4: Kloning Slide 1 untuk efek putaran looping mulus tanpa jeda -->
+            <div class="pure-css-slide" style="background: url('photo/vegemite.jpg') center/cover no-repeat !important;"></div>
         </div>
+
+        <!-- Lapisan Teks Statis di Atas Latar Belakang Gambar Bergerak -->
+        <div class="hero-content carousel-overlay-text">
+            <h1 class="text-effect" style="margin: 0; color: #ffffff; font-size: 3.5rem; line-height: 1.2;">Cita Rasa<br><span class="highlight">Belahan Selatan.</span></h1>
+            <p class="hero-lead" style="margin-top: 1.2rem; color: #e5e5e5; max-width: 650px; font-size: 1.15rem; line-height: 1.6;">Menjelajahi kuliner ikonik Australia yang lahir dari tradisi lokal dan fusi budaya modern dunia.</p>
+        </div>
+
     </header>
 
     <main class="container">
         <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
         <div class="scroll-line"></div>
+        
         <section class="kuliner-grid">
             
+            <!-- Card 1: Vegemite -->
             <a href="vegemite.html" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">
@@ -66,6 +87,7 @@
                 </div>
             </a>
 
+            <!-- Card 2: Anzac Biscuits -->
             <a href="anzac.html" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">
@@ -80,6 +102,7 @@
                 </div>
             </a>
 
+            <!-- Card 3: Lamington -->
             <a href="lamington.html" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">

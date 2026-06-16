@@ -23,7 +23,7 @@ const destinasiData = {
     "uluru": {
         nama: "Uluru / Ayers Rock",
         tag: "NORTHERN TERRITORY",
-        img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/uluru2.jpg",
         deskripsi: "Monolit batu pasir raksasa yang sakral di jantung gurun merah (Outback) Australia.",
         deskripsiDetail: "Uluru, yang juga dikenal sebagai Ayers Rock, adalah monolit batu pasir besar yang terletak di bagian selatan Northern Territory, tepat di pusat geografis Australia. Menjulang setinggi 348 meter di atas dataran pasir sekitarnya, batu purba ini terkenal karena kemampuannya berubah warna secara dramatis pada waktu yang berbeda dalam sehari, terutama saat fajar dan senja ketika memancarkan warna merah menyala.\n\nBagi suku Aborigin Anangu, Uluru adalah tempat suci spiritual yang sangat sakral. Mereka telah menjaga tanah ini selama puluhan ribu tahun. Di sekitar kaki monolit terdapat lukisan batu purba, mata air alami, dan gua-gua bersejarah yang menyimpan kisah Dreamtime kuno tentang penciptaan bumi.",
         lokasi: "Taman Nasional Uluru-Kata Tjuta, NT 0872",
@@ -33,7 +33,7 @@ const destinasiData = {
     "melbourne-laneways": {
         nama: "Melbourne Laneways",
         tag: "VICTORIA",
-        img: "https://images.unsplash.com/photo-1514395462725-fb4566210144?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/laneways2.jpg",
         deskripsi: "Jaringan gang-gang seni perkotaan yang kaya akan mural, galeri tersembunyi, dan budaya kopi legendaris.",
         deskripsiDetail: "Melbourne terkenal di seluruh dunia karena jaringan gang kota (laneways) yang semarak dan dipenuhi oleh ekspresi budaya kontemporer. Di area seperti Hosier Lane, AC/DC Lane, dan Degraves Street, dinding gang dihias dengan seni jalanan (street art) atau graffiti berkelas dunia yang selalu berganti secara dinamis.\n\nDi dalam gang-gang abad ke-19 yang berkelok-kelok ini, Anda akan menemukan kafe-kafe butik kecil yang menyajikan kopi flat white standar barista terbaik di dunia. Kehidupan urban yang tersembunyi ini juga dipenuhi oleh restoran tersembunyi bergaya retro, toko pakaian desainer lokal, dan bar musik indie yang aktif hingga larut malam.",
         lokasi: "Pusat Kota Melbourne CBD, Victoria",
@@ -43,7 +43,7 @@ const destinasiData = {
     "great-ocean-road": {
         nama: "Great Ocean Road",
         tag: "VICTORIA",
-        img: "https://images.unsplash.com/photo-1473116763269-255ea7604668?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/ocean-road2.jpg",
         deskripsi: "Rute perjalanan pesisir pantai spektakuler yang menampilkan formasi tebing batu kapur 'Twelve Apostles'.",
         deskripsiDetail: "Great Ocean Road adalah salah satu jalur berkendara pesisir pantai paling indah di dunia yang membentang sepanjang 243 kilometer di sepanjang pantai selatan Victoria. Dibangun oleh para prajurit yang kembali dari Perang Dunia I antara tahun 1919 dan 1932, jalan raya ini didedikasikan sebagai monumen peringatan perang terbesar di dunia.\n\nSepanjang jalan, pelancong disuguhi pemandangan spektakuler Samudra Selatan yang menghantam tebing-tebing kapur curam. Puncaknya adalah formasi Twelve Apostles, yaitu pilar-pilar batu kapur raksasa yang berdiri kokoh di tengah deburan ombak laut. Rute ini juga melintasi hutan hujan subtropis yang subur, pantai selancar legendaris di Torquay, dan desa-desa pesisir yang menawan.",
         lokasi: "Torquay hingga Allansford, Pantai Selatan Victoria",
@@ -53,7 +53,7 @@ const destinasiData = {
     "kakadu": {
         nama: "Kakadu National Park",
         tag: "NORTHERN TERRITORY",
-        img: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/kakadu2.jpg",
         deskripsi: "Taman nasional terluas di Australia dengan keindahan lahan basah, air terjun, dan lukisan batu adat purba.",
         deskripsiDetail: "Taman Nasional Kakadu adalah Situs Warisan Dunia UNESCO kategori ganda (budaya dan alam) yang terletak di ujung utara Australia. Dengan luas hampir 20.000 kilometer persegi, taman ini menyajikan lanskap alam liar yang luar biasa, mulai dari dataran banjir lahan basah (wetlands), hutan sabana, ngarai batu kapur, hingga air terjun spektakuler seperti Jim Jim Falls.\n\nSelain pesona geologi, Kakadu memiliki signifikansi arkeologi yang luar biasa. Tempat ini menyimpan salah satu konsentrasi seni lukis tebing purba Aborigin terbesar di dunia, beberapa di antaranya berusia lebih dari 20.000 tahun di situs Nourlangie dan Ubirr. Pengunjung dapat melihat representasi visual satwa purba dan kisah spiritual leluhur langsung di dinding-dinding batu alam.",
         lokasi: "Kakadu Highway, Northern Territory 0822",
@@ -66,7 +66,7 @@ const floraFaunaData = {
     "kangaroo": {
         nama: "Kangaroo (Kanguru)",
         tag: "FAUNA IKONIK",
-        img: "https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/kanguru.jpg",
         deskripsi: "Mamalia berkantung (marsupial) khas Australia yang bergerak aktif dengan cara melompat.",
         deskripsiDetail: "Kanguru adalah simbol nasional resmi Australia yang dapat ditemukan di berbagai habitat, mulai dari hutan kering hingga dataran gurun pedalaman. Sebagai mamalia berkantung terbesar di bumi, kanguru betina memiliki kantung khusus (marsupium) di perutnya untuk membesarkan anak mereka yang disebut 'joey' dari lahir hingga cukup mandiri.\n\nKanguru memiliki kaki belakang yang sangat kuat dan elastis untuk melompat dengan kecepatan tinggi hingga 70 km/jam. Ekornya yang panjang dan tebal bertindak sebagai penyeimbang dinamis saat melompat atau sebagai kaki kelima saat berdiri tegak. Mereka adalah herbivora yang memakan rumput dan dedaunan gurun.",
         habitat: "Padang rumput, sabana terbuka, dan daerah semak belukar",
@@ -76,7 +76,7 @@ const floraFaunaData = {
     "koala": {
         nama: "Koala",
         tag: "FAUNA HERBIVOR",
-        img: "https://images.unsplash.com/photo-1579710313177-3e117de2e36d?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/koala.jpg",
         deskripsi: "Hewan berkantung lucu pemakan daun eukaliptus yang menghabiskan hidupnya di atas pohon.",
         deskripsiDetail: "Koala sering kali disalahpahami sebagai beruang, padahal mereka adalah marsupial (mamalia berkantung). Koala menghabiskan hampir seluruh waktu hidup mereka di dahan pohon eukaliptus di wilayah pesisir timur dan tenggara Australia. Hewan ini sangat terkenal karena wajahnya yang bulat imut, telinga berbulu lebar, dan gaya hidupnya yang sangat lambat.\n\nKoala memiliki pola makan yang sangat khusus: mereka hanya memakan daun eukaliptus yang sebenarnya beracun bagi mamalia lain. Karena daun ini memiliki nutrisi rendah dan sulit dicerna, koala menghemat energi dengan cara tidur hingga 18-20 jam sehari di sela-sela dahan pohon.",
         habitat: "Hutan eukaliptus terbuka di wilayah timur Australia",
@@ -86,7 +86,7 @@ const floraFaunaData = {
     "wombat": {
         nama: "Wombat",
         tag: "FAUNA ENDEMIK",
-        img: "https://images.unsplash.com/photo-1598416399104-e3c31bbcc048?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/wombat.jpg",
         deskripsi: "Mamalia berkantung penggali liang dengan tubuh gempal mirip beruang kecil.",
         deskripsiDetail: "Wombat adalah hewan marsupial berkaki pendek berkuku kuat yang hidup di wilayah pegunungan dan hutan sejuk di tenggara Australia dan Tasmania. Tubuh mereka bulat padat dengan otot kuat yang dirancang khusus untuk menggali sistem terowongan bawah tanah yang luas menggunakan cakar depan mereka yang tajam.\n\nSalah satu adaptasi paling unik dari wombat betina adalah kantungnya menghadap ke belakang. Hal ini mencegah tanah atau pasir masuk ke dalam kantung dan mengenai bayinya saat sang induk sedang aktif menggali tanah. Wombat bersifat nokturnal dan pemalu, keluar hanya pada malam hari untuk memakan rumput dan akar pohon.",
         habitat: "Hutan pegunungan basah dan daerah berumput dingin",
@@ -96,7 +96,7 @@ const floraFaunaData = {
     "eucalyptus": {
         nama: "Eucalyptus Tree",
         tag: "FLORA DOMINAN",
-        img: "https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/eucalypt.jpg",
         deskripsi: "Pohon beraroma harum penghasil minyak atsiri yang mendominasi 75% hutan di Australia.",
         deskripsiDetail: "Pohon Eukaliptus mendominasi lanskap alam Australia, mencakup sekitar tiga perempat dari total area hutan di seluruh benua. Terdapat lebih dari 700 spesies eukaliptus yang tumbuh di berbagai zona iklim, dari pegunungan bersalju Alpine hingga gurun Outback panas.\n\nDaun eukaliptus mengandung kelenjar minyak atsiri yang menghasilkan aroma khas segar yang menenangkan pikiran. Aroma ini memenuhi udara hutan, terutama saat hari panas. Minyak eukaliptus banyak disuling untuk obat gosok antiseptik, sabun, dan aromaterapi. Pohon ini memiliki peran penting dalam mencegah erosi tanah dan menjadi makanan eksklusif koala.",
         habitat: "Tumbuh di hampir seluruh ekosistem benua Australia",
@@ -106,7 +106,7 @@ const floraFaunaData = {
     "waratah": {
         nama: "Waratah Flower",
         tag: "FLORA NEW SOUTH WALES",
-        img: "https://images.unsplash.com/photo-1507290439931-a8e02da93800?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/waratah.jpg",
         deskripsi: "Bunga semak liar merah besar berbentuk mahkota yang megah.",
         deskripsiDetail: "Waratah (Telopea speciosissima) adalah bunga liar asli dari bagian tenggara Australia dan merupakan lambang flora resmi negara bagian New South Wales. Tanaman ini tumbuh sebagai semak kayu setinggi 3 hingga 4 meter di daerah tanah berpasir kering di hutan eukaliptus terbuka.\n\nBunga ini sangat menakjubkan karena ukurannya yang besar (diameter 7-15 cm) berwarna merah crimson pekat yang berbentuk seperti kubah mahkota. Bentuk kubah tersebut sebenarnya adalah kumpulan dari ratusan bunga individu kecil yang tersusun padat dikelilingi daun kelopak merah menyala. Keindahannya telah lama menginspirasi karya seni rupa Aborigin dan dekorasi modern.",
         habitat: "Hutan pasir kering NSW dan Blue Mountains",
@@ -116,7 +116,7 @@ const floraFaunaData = {
     "golden-wattle": {
         nama: "Golden Wattle",
         tag: "FLORA NASIONAL",
-        img: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80",
+        img: "photo/wattle.jpg",
         deskripsi: "Bunga nasional resmi Australia dengan bunga-bunga kecil kuning cerah selembut kapas.",
         deskripsiDetail: "Golden Wattle (Acacia pycnantha) adalah tanaman semak kayu hijau abadi yang dinyatakan sebagai Lambang Flora Nasional Resmi Persemakmuran Australia pada tahun 1988. Tanaman ini tumbuh subur di bagian selatan Australia, khususnya di daerah beriklim sedang.\n\nSaat mekar penuh di akhir musim dingin dan awal musim semi, Golden Wattle dipenuhi oleh ribuan kuntum bunga bulat kecil berwarna kuning emas yang sangat harum, menyerupai bola kapas halus. Warna kuning emas dari bunga ini dikombinasikan dengan daunnya yang hijau tua merupakan inspirasi langsung dari warna olahraga nasional Australia (hijau dan emas) yang digunakan oleh tim atletik internasional mereka.",
         habitat: "Daerah beriklim sedang di Victoria, NSW, dan South Australia",

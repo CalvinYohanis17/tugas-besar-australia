@@ -621,6 +621,7 @@ body {
     color: var(--primary-blue);
 }
 
+
 /* --- ORNAMEN TAMBAHAN: FLOATING THEME TOGGLE & PROGRESS LINE --- */
 .floating-btn {
     position: fixed;
@@ -1237,4 +1238,4 @@ body.dark-theme .artefak-img-placeholder {
     .artefak-koleksi-tag {
         align-self: flex-end;
     }
-}
+}

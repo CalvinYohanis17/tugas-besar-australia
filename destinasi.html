@@ -6,6 +6,63 @@
     <title>Destinasi Wisata Impian Australia — AussieCulture</title>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================================================
+           CSS ISOLASI CAROUSEL DESTINASI (ANTI TABRAKAN BLUE BACKGROUND GLOBAL)
+           ========================================================================== */
+        
+        /* Menggunakan nama kelas baru agar terbebas dari warna biru tua bawaan style.css */
+        .destinasi-carousel-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            height: 480px; 
+            width: 100%;
+            background-color: #020813 !important; /* Latar dasar aman saat transisi */
+            margin-bottom: 2rem;
+        }
+        
+        /* Jalur lintasan geser otomatis yang menampung total 5 slide (lebar total 500%) */
+        .destinasi-css-track {
+            display: flex;
+            width: 500%; 
+            height: 100%;
+            animation: slideDestinasiMulus 20s infinite ease-in-out; 
+        }
+
+        /* Mengunci proporsi lebar tiap slide tepat 100% dari lebar layar jumbotron (1/5 dari 500%) */
+        .destinasi-css-slide {
+            width: 20%; 
+            height: 100%;
+            flex-shrink: 0; 
+        }
+
+        /* Lapisan bayangan gradasi hitam agar teks putih di depan selalu kontras dan tajam */
+        .carousel-overlay-text {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 4rem;
+            box-sizing: border-box;
+            z-index: 5;
+            pointer-events: none; 
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 35%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        /* Pengatur waktu jeda diam (20%) dan waktu bergeser (5%) per satu slide gambar penuh */
+        @keyframes slideDestinasiMulus {
+            0%, 20%   { transform: translateX(0); }         /* Slide 1: Sydney Opera House */
+            25%, 45%  { transform: translateX(-20%); }     /* Geser -> Slide 2: Great Barrier Reef */
+            50%, 70%  { transform: translateX(-40%); }     /* Geser -> Slide 3: Uluru */
+            75%, 95%  { transform: translateX(-60%); }     /* Geser -> Slide 4: Great Ocean Road */
+            100%      { transform: translateX(0); }         /* Loop putar balik instan ke awal */
+        }
+    </style>
 </head>
 <body>
     <script>
@@ -40,11 +97,33 @@
         </div>
     </nav>
 
-    <header class="hero container animate-fade">
-        <div class="hero-content">
-            <h1 class="text-effect">Eksplorasi<br><span class="highlight text-gradient">Destinasi Australia.</span></h1>
-            <p class="hero-lead">Dari keajaiban alam purba luar biasa hingga kota metropolitan ultramodern yang dinamis.</p>
+    <!-- JUMBOTRON UTAMA: Menggunakan Slider Latar Belakang Gambar Terisolasi -->
+    <header class="destinasi-carousel-hero container animate-fade">
+        
+        <!-- Jalur Pergeseran Foto Lanskap Wisata -->
+        <div class="destinasi-css-track">
+            <!-- Slide 1: Sydney Opera House -->
+            <div class="destinasi-css-slide" style="background: url('photo/opera.jpg') center/cover no-repeat !important;"></div>
+            
+            <!-- Slide 2: Great Barrier Reef -->
+            <div class="destinasi-css-slide" style="background: url('photo/barrier.jpg') center/cover no-repeat !important;"></div>
+            
+            <!-- Slide 3: Uluru -->
+            <div class="destinasi-css-slide" style="background: url('photo/uluru.jpg') center/cover no-repeat !important;"></div>
+            
+            <!-- Slide 4: Great Ocean Road -->
+            <div class="destinasi-css-slide" style="background: url('photo/ocean-road.jpg') center/cover no-repeat !important;"></div>
+            
+            <!-- Slide 5: Kloning Slide 1 untuk Putaran Animasi Halus -->
+            <div class="destinasi-css-slide" style="background: url('photo/opera.jpg') center/cover no-repeat !important;"></div>
         </div>
+
+        <!-- Lapisan Teks Jumbotron yang Mengunci Diam di Depan -->
+        <div class="hero-content carousel-overlay-text">
+            <h1 class="text-effect" style="margin: 0; color: #ffffff; font-size: 3.5rem; line-height: 1.2;">Eksplorasi<br><span class="highlight">Destinasi Australia.</span></h1>
+            <p class="hero-lead" style="margin-top: 1.2rem; color: #e5e5e5; max-width: 650px; font-size: 1.15rem; line-height: 1.6;">Dari keajaiban alam purba luar biasa hingga kota metropolitan ultramodern yang dinamis.</p>
+        </div>
+
     </header>
 
     <main class="container">
@@ -53,10 +132,11 @@
 
         <section class="kuliner-grid">
             
+            <!-- Card 1: Sydney Opera House -->
             <a href="detail-destinasi.html?id=sydney-opera" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=600&q=80" alt="Sydney Opera House" class="card-img">
+                        <img src="photo/opera.jpg" alt="Sydney Opera House" class="card-img">
                         <span class="card-tag">NEW SOUTH WALES</span>
                     </div>
                     <div class="card-body">
@@ -67,10 +147,11 @@
                 </div>
             </a>
 
+            <!-- Card 2: Great Barrier Reef -->
             <a href="detail-destinasi.html?id=great-barrier-reef" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Great Barrier Reef" class="card-img">
+                        <img src="photo/barrier.jpg" alt="Great Barrier Reef" class="card-img">
                         <span class="card-tag">QUEENSLAND</span>
                     </div>
                     <div class="card-body">
@@ -81,10 +162,11 @@
                 </div>
             </a>
 
+            <!-- Card 3: Uluru -->
             <a href="detail-destinasi.html?id=uluru" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Uluru" class="card-img">
+                        <img src="photo/uluru.jpg" alt="Uluru" class="card-img">
                         <span class="card-tag">NORTHERN TERRITORY</span>
                     </div>
                     <div class="card-body">
@@ -95,10 +177,11 @@
                 </div>
             </a>
 
+            <!-- Card 4: Melbourne Laneways -->
             <a href="detail-destinasi.html?id=melbourne-laneways" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1514395462725-fb4566210144?auto=format&fit=crop&w=600&q=80" alt="Melbourne Laneways" class="card-img">
+                        <img src="photo/laneways.jpg" alt="Melbourne Laneways" class="card-img">
                         <span class="card-tag">VICTORIA</span>
                     </div>
                     <div class="card-body">
@@ -109,10 +192,11 @@
                 </div>
             </a>
 
+            <!-- Card 5: Great Ocean Road -->
             <a href="detail-destinasi.html?id=great-ocean-road" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1473116763269-255ea7604668?auto=format&fit=crop&w=600&q=80" alt="Great Ocean Road" class="card-img">
+                        <img src="photo/ocean-road.jpg" alt="Great Ocean Road" class="card-img">
                         <span class="card-tag">VICTORIA</span>
                     </div>
                     <div class="card-body">
@@ -123,10 +207,11 @@
                 </div>
             </a>
 
+            <!-- Card 6: Kakadu National Park -->
             <a href="detail-destinasi.html?id=kakadu" class="card-link">
                 <div class="sejarah-card">
                     <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=600&q=80" alt="Kakadu National Park" class="card-img">
+                        <img src="photo/kakadu.jpg" alt="Kakadu National Park" class="card-img">
                         <span class="card-tag">NORTHERN TERRITORY</span>
                     </div>
                     <div class="card-body">
