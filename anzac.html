@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anzac Biscuits — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px;">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
+        <div class="back-btn-container">
+            <a href="kuliner.html" class="btn-back">← Kembali ke Kuliner</a>
+        </div>
+
+        <header class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1558961309-dbdf71799f5a?auto=format&fit=crop&w=1200&q=80');">
+            <div class="detail-hero-content">
+                <span class="card-tag">HISTORIS</span>
+                <h1 class="detail-title">Anzac Biscuits</h1>
+            </div>
+        </header>
+
+        <div class="detail-grid">
+            <article class="detail-main">
+                <p>Anzac Biscuits adalah kue kering manis bersejarah yang dibuat menggunakan bahan dasar oat, kelapa parut, tepung terigu, gula, mentega, sirup emas (golden syrup), dan soda kue. Kue ini memiliki hubungan sejarah yang sangat erat dengan Australian and New Zealand Army Corps (ANZAC) yang didirikan selama Perang Dunia I.</p>
+                <p>Selama perang, para istri dan kelompok wanita di tanah air (Australia dan Selandia Baru) membuat kue kering ini untuk dikirimkan kepada para tentara yang berjuang di garis depan, termasuk saat kampanye militer bersejarah di Gallipoli, Turki. Resep kue ini dirancang secara khusus tanpa menggunakan telur, karena pasokan telur sangat langka selama masa perang dan agar kue tetap awet untuk dikonsumsi setelah perjalanan kapal laut berbulan-bulan.</p>
+                <p>Kini, Anzac Biscuits diproduksi dan dikonsumsi secara luas di seluruh Australia, terutama pada Hari ANZAC (25 April) sebagai bentuk penghormatan dan pengingat akan jasa para pahlawan yang gugur di medan perang.</p>
+            </article>
+
+            <aside class="detail-sidebar">
+                <h3 class="sidebar-title">Fakta Kuliner</h3>
+                
+                <div class="fact-item">
+                    <div class="fact-label">Bahan Utama</div>
+                    <div class="fact-value">Oat, Tepung Terigu, Kelapa Parut, Mentega, Golden Syrup</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Profil Rasa</div>
+                    <div class="fact-value">Manis Karamel, Gurih Kelapa, Renyah/Kenyal</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Asal-Usul Sejarah</div>
+                    <div class="fact-value">Australia & Selandia Baru (Perang Dunia I, sekitar tahun 1915)</div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

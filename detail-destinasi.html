@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Destinasi — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px;" id="destinasi-detail-page">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
+        <div id="detail-content-area">
+            <div class="back-btn-container">
+                <a href="destinasi.html" class="btn-back">← Kembali ke Destinasi</a>
+            </div>
+
+            <!-- Hero Banner Destinasi -->
+            <header class="detail-hero" id="detail-hero-bg">
+                <div class="detail-hero-content">
+                    <span class="card-tag" id="detail-tag">Negara Bagian</span>
+                    <h1 class="detail-title" id="detail-title">Nama Destinasi</h1>
+                </div>
+            </header>
+
+            <!-- Grid Konten -->
+            <div class="detail-grid">
+                <!-- Deskripsi Kiri -->
+                <article class="detail-main" id="detail-desc">
+                    <!-- Paragraf deskripsi diisi secara dinamis -->
+                </article>
+
+                <!-- Sidebar Kanan (Informasi Cepat) -->
+                <aside class="detail-sidebar">
+                    <h3 class="sidebar-title">Fakta Kilat</h3>
+                    
+                    <div class="fact-item">
+                        <div class="fact-label">Lokasi Geografis</div>
+                        <div class="fact-value" id="fact-location">Memuat lokasi...</div>
+                    </div>
+
+                    <div class="fact-item">
+                        <div class="fact-label">Waktu Terbaik Berkunjung</div>
+                        <div class="fact-value" id="fact-time">Memuat waktu terbaik...</div>
+                    </div>
+
+                    <div class="fact-item">
+                        <div class="fact-label">Aktivitas Rekomendasi</div>
+                        <div class="fact-value" id="fact-activity">Memuat rekomendasi aktivitas...</div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+        </div>
+    </footer>
+
+    <!-- Muat data.js sebelum script.js -->
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

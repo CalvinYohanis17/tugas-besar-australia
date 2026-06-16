@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">AussieCulture.</div>
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
             
             <div class="burger-menu" id="burger-btn">
                 <div class="line1"></div>
@@ -20,16 +24,18 @@
             </div>
 
             <ul class="nav-links" id="nav-menu">
-                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
                     <div class="dropdown-content">
-                        <a href="index.html">Semua Arkeotipe</a>
-                        <a href="index.html">Suku Aborigin</a>
-                        <a href="index.html">Seni & Kolonial</a>
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
                     </div>
                 </li>
-                <li><a href="kuliner.html" class="active">Kuliner</a></li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
             </ul>
         </div>
     </nav>
@@ -42,6 +48,8 @@
     </header>
 
     <main class="container">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
         <section class="kuliner-grid">
             
             <a href="vegemite.html" class="card-link">
@@ -92,13 +100,9 @@
     <footer class="footer">
         <div class="footer-container container">
             <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
-            <div class="footer-links">
-                <a href="#">Dokumentasi GitHub</a>
-                <a href="#">Daftar Sitasi</a>
-            </div>
         </div>
     </footer>
 
-    <script src="kuliner.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>

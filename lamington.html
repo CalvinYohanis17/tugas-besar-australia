@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lamington Cake — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2 ="></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px;">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
+        <div class="back-btn-container">
+            <a href="kuliner.html" class="btn-back">← Kembali ke Kuliner</a>
+        </div>
+
+        <header class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=80');">
+            <div class="detail-hero-content">
+                <span class="card-tag">MANIS</span>
+                <h1 class="detail-title">Lamington Cake</h1>
+            </div>
+        </header>
+
+        <div class="detail-grid">
+            <article class="detail-main">
+                <p>Lamington adalah hidangan penutup (dessert) tradisional Australia yang sangat ikonik, berupa kue spons berbentuk kubus lembut yang dilapisi dengan saus cokelat manis cair dan kemudian ditaburi dengan parutan kelapa kering.</p>
+                <p>Kue ini dinamai berdasarkan Lord Lamington, yang menjabat sebagai Gubernur Queensland dari tahun 1896 hingga 1901. Menurut legenda kuliner setempat, kue ini tercipta secara tidak sengaja di rumah dinas gubernur ketika koki pribadinya terpaksa menyajikan hidangan penutup mendadak untuk tamu penting menggunakan sisa kue spons yang sudah agak kering. Sang koki mencelupkan kue spons tersebut ke dalam cokelat cair untuk melembutkannya kembali, lalu melapisinya dengan kelapa parut agar tidak lengket saat dipegang oleh para tamu.</p>
+                <p>Saat ini, Lamington sering kali disajikan dengan tambahan lapisan selai stroberi atau krim kocok di bagian tengahnya. Kue ini sangat populer di seluruh penjuru negeri dan sering dijual dalam acara penggalangan dana sekolah atau komunitas yang dikenal dengan istilah "Lamington Drives".</p>
+            </article>
+
+            <aside class="detail-sidebar">
+                <h3 class="sidebar-title">Fakta Kuliner</h3>
+                
+                <div class="fact-item">
+                    <div class="fact-label">Bahan Utama</div>
+                    <div class="fact-value">Kue Spons Mentega, Cokelat Cair, Kelapa Parut Kering</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Profil Rasa</div>
+                    <div class="fact-value">Manis Cokelat, Lembut di Mulut, Gurih Kelapa</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Asal-Usul Sejarah</div>
+                    <div class="fact-value">Queensland, Australia (Sekitar tahun 1900, dinamai Lord Lamington)</div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegemite Toast — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px;">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
+        <div class="back-btn-container">
+            <a href="kuliner.html" class="btn-back">← Kembali ke Kuliner</a>
+        </div>
+
+        <header class="detail-hero" style="background-image: url('https://images.unsplash.com/photo-1588001291548-948f2a9709f1?auto=format&fit=crop&w=1200&q=80');">
+            <div class="detail-hero-content">
+                <span class="card-tag">IKONIK</span>
+                <h1 class="detail-title">Vegemite Toast</h1>
+            </div>
+        </header>
+
+        <div class="detail-grid">
+            <article class="detail-main">
+                <p>Vegemite adalah selai hitam gurih legendaris yang telah menjadi bagian tak terpisahkan dari sarapan pagi keluarga Australia selama lebih dari satu abad. Selai unik ini terbuat dari ekstrak ragi sisa pembuatan bir yang dicampur dengan berbagai sayuran dan rempah-rempah pilihan.</p>
+                <p>Memiliki cita rasa asin pekat, sedikit pahit, dan kaya akan umami yang sangat kuat. Bagi orang luar Australia, rasa Vegemite mungkin terasa mengejutkan pada gigitan pertama. Kunci utama untuk menikmatinya adalah dengan cara mengoleskannya secara tipis saja di atas roti panggang hangat yang telah dilapisi mentega tebal (butter), bukan mengoleskannya tebal seperti selai cokelat.</p>
+                <p>Vegemite sangat kaya akan Vitamin B (khususnya thiamine, riboflavin, niacin, dan folate) dan hampir tidak memiliki kandungan lemak atau gula. Diciptakan pertama kali oleh ahli kimia makanan Dr. Cyril Callister di Melbourne pada tahun 1923 untuk menyaingi produk Marmite asal Inggris, Vegemite kini telah menjelma menjadi simbol identitas budaya kuliner nasional Australia.</p>
+            </article>
+
+            <aside class="detail-sidebar">
+                <h3 class="sidebar-title">Fakta Kuliner</h3>
+                
+                <div class="fact-item">
+                    <div class="fact-label">Bahan Utama</div>
+                    <div class="fact-value">Ekstrak Ragi, Mentega, Roti Panggang</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Profil Rasa</div>
+                    <div class="fact-value">Asin, Gurih, Umami Kuat</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Asal-Usul Sejarah</div>
+                    <div class="fact-value">Melbourne, Victoria (Tahun 1923 oleh Dr. Cyril Callister)</div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

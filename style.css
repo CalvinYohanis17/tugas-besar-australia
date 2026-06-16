@@ -57,7 +57,7 @@ body {
 
 /* Tombol Burger Menu (Sembunyi secara default di PC) */
 .burger-menu {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
@@ -872,6 +872,369 @@ body.dark-theme #live-quote { color: #D1D5DB; }
 
     .footer-container {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
     }
 }
+
+/* ==========================================================================
+    TAMBAHAN STYLING DETAIL PAGE (DESTINASI & FLORA FAUNA)
+   ========================================================================== */
+.detail-hero {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.detail-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(10, 25, 49, 0.9) 0%, rgba(10, 25, 49, 0.4) 50%, rgba(10, 25, 49, 0.1) 100%);
+    z-index: 1;
+}
+.detail-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    color: #ffffff;
+}
+.detail-hero-content .card-tag {
+    position: static;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+.detail-title {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+@media (min-width: 768px) {
+    .detail-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+.detail-main {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+.detail-main p {
+    margin-bottom: 24px;
+}
+.detail-sidebar {
+    background: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    align-self: start;
+}
+.sidebar-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--primary-blue);
+    border-bottom: 2px solid var(--accent-gold);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.fact-item {
+    margin-bottom: 16px;
+}
+.fact-item:last-child {
+    margin-bottom: 0;
+}
+.fact-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.fact-value {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+.back-btn-container {
+    margin-bottom: 24px;
+}
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+.btn-back:hover {
+    color: var(--accent-gold);
+}
+
+/* ==========================================================================
+    TAMBAHAN PENYELARASAN MODE GELAP (DARK THEME)
+   ========================================================================== */
+body.dark-theme .burger-menu div {
+    background-color: var(--accent-gold);
+}
+body.dark-theme .dropdown-content {
+    background-color: #0D1B2A;
+    border-color: #1E293B;
+}
+body.dark-theme .dropdown-content a {
+    color: #9CA3AF;
+}
+body.dark-theme .dropdown-content a:hover {
+    background-color: #1E293B;
+    color: #ffffff;
+}
+body.dark-theme .footer {
+    background-color: #0D1B2A;
+    border-color: #1E293B;
+    color: #9CA3AF;
+}
+body.dark-theme .footer-links a {
+    color: #9CA3AF;
+}
+body.dark-theme .footer-links a:hover {
+    color: #ffffff;
+}
+body.dark-theme .hero-lead, 
+body.dark-theme .card-body p, 
+body.dark-theme .section-header p, 
+body.dark-theme .artefak-desc, 
+body.dark-theme .footer-container p,
+body.dark-theme .fact-label,
+body.dark-theme .fact-value {
+    color: #9CA3AF;
+}
+body.dark-theme .kuliner-more {
+    color: var(--accent-gold);
+}
+body.dark-theme .card-link:hover .kuliner-more {
+    color: #ffffff;
+}
+body.dark-theme .card-tag {
+    background-color: var(--accent-gold);
+    color: #070F1E;
+}
+body.dark-theme .detail-sidebar {
+    background-color: #0D1B2A;
+    border-color: #1E293B;
+}
+body.dark-theme .sidebar-title {
+    color: #ffffff;
+}
+body.dark-theme .btn-back {
+    color: var(--accent-gold);
+}
+body.dark-theme .btn-back:hover {
+    color: #ffffff;
+}
+
+/* ==========================================================================
+    TAMBAHAN REVISI: HERO BACKGROUND CAROUSEL
+   ========================================================================== */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 100px 0;
+    color: #ffffff;
+    background-color: #070F1E;
+}
+.hero-carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+.carousel-track {
+    display: flex;
+    height: 100%;
+    width: 400%; /* 4 slides: A, B, C, A-clone */
+    transform: translateX(0%);
+}
+.carousel-slide {
+    flex: 0 0 25%; /* 1/4 dari 400% track = 100% lebar container */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(7, 15, 30, 0.65);
+    z-index: 2;
+}
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+.hero .text-effect {
+    color: #ffffff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+.hero .hero-lead {
+    color: #E5E7EB;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    max-width: 650px;
+}
+
+/* ==========================================================================
+    TAMBAHAN REVISI: SWIPEABLE CATEGORY SECTIONS (INDEX EXPANSION)
+   ========================================================================== */
+.category-section {
+    margin-bottom: 60px;
+    padding: 0 4px;
+}
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #E5E7EB;
+    padding-bottom: 12px;
+}
+body.dark-theme .category-header {
+    border-color: #1E293B;
+}
+.category-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    margin-bottom: 0;
+}
+body.dark-theme .category-header h2 {
+    color: #ffffff;
+}
+.see-all-link {
+    text-decoration: none;
+    color: var(--accent-gold);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.3s, color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.see-all-link:hover {
+    color: var(--primary-blue);
+    transform: translateX(4px);
+}
+body.dark-theme .see-all-link:hover {
+    color: #ffffff;
+}
+.category-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    padding: 10px 4px 30px 4px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+.category-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+.category-scroll-container .card-link {
+    flex: 0 0 290px;
+    scroll-snap-align: start;
+}
+@media (min-width: 768px) {
+    .category-scroll-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        padding-bottom: 0;
+        gap: 30px;
+    }
+    .category-scroll-container .card-link {
+        flex: none;
+        width: 100%;
+    }
+}
+
+/* --- ARTEFAK PLACEHOLDER IMAGES & ALIGNMENT --- */
+.artefak-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.artefak-img-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: #F3F4F6;
+    border: 1.5px dashed #D1D5DB;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9CA3AF;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.artefak-img-placeholder svg {
+    width: 26px;
+    height: 26px;
+    stroke: currentColor;
+}
+
+.artefak-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.artefak-koleksi-tag {
+    font-size: 0.8rem;
+    color: var(--accent-gold);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+body.dark-theme .artefak-img-placeholder {
+    background-color: #1E293B;
+    border-color: #4B5563;
+    color: #6B7280;
+}
+
+@media (max-width: 640px) {
+    .artefak-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .artefak-koleksi-tag {
+        align-self: flex-end;
+    }
+}

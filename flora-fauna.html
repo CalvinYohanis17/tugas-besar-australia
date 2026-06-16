@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keunikan Flora & Fauna Australia — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero container animate-fade">
+        <div class="hero-content">
+            <h1 class="text-effect">Keunikan<br><span class="highlight text-gradient">Flora & Fauna.</span></h1>
+            <p class="hero-lead">Mempelajari keanekaragaman makhluk hidup endemik yang berevolusi di benua terisolasi belahan selatan.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
+        <section class="kuliner-grid">
+            
+            <a href="detail-flora-fauna.html?id=kangaroo" class="card-link">
+                <div class="sejarah-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=600&q=80" alt="Kangaroo" class="card-img">
+                        <span class="card-tag">FAUNA IKONIK</span>
+                    </div>
+                    <div class="card-body">
+                        <h2>Kangaroo (Kanguru)</h2>
+                        <p>Mamalia berkantung (marsupial) khas Australia yang bergerak aktif dengan cara melompat.</p>
+                        <span class="kuliner-more">Pelajari Detail Spesies →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="detail-flora-fauna.html?id=koala" class="card-link">
+                <div class="sejarah-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1579710313177-3e117de2e36d?auto=format&fit=crop&w=600&q=80" alt="Koala" class="card-img">
+                        <span class="card-tag">FAUNA HERBIVOR</span>
+                    </div>
+                    <div class="card-body">
+                        <h2>Koala</h2>
+                        <p>Hewan berkantung lucu pemakan daun eukaliptus yang menghabiskan hidupnya di atas pohon.</p>
+                        <span class="kuliner-more">Pelajari Detail Spesies →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="detail-flora-fauna.html?id=wombat" class="card-link">
+                <div class="sejarah-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1598416399104-e3c31bbcc048?auto=format&fit=crop&w=600&q=80" alt="Wombat" class="card-img">
+                        <span class="card-tag">FAUNA ENDEMIK</span>
+                    </div>
+                    <div class="card-body">
+                        <h2>Wombat</h2>
+                        <p>Mamalia berkantung penggali liang dengan tubuh gempal mirip beruang kecil.</p>
+                        <span class="kuliner-more">Pelajari Detail Spesies →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="detail-flora-fauna.html?id=eucalyptus" class="card-link">
+                <div class="sejarah-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80" alt="Eucalyptus" class="card-img">
+                        <span class="card-tag">FLORA DOMINAN</span>
+                    </div>
+                    <div class="card-body">
+                        <h2>Eucalyptus Tree</h2>
+                        <p>Pohon beraroma harum penghasil minyak atsiri yang mendominasi 75% hutan di Australia.</p>
+                        <span class="kuliner-more">Pelajari Detail Spesies →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="detail-flora-fauna.html?id=waratah" class="card-link">
+                <div class="sejarah-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507290439931-a8e02da93800?auto=format&fit=crop&w=600&q=80" alt="Waratah" class="card-img">
+                        <span class="card-tag">FLORA NEW SOUTH WALES</span>
+                    </div>
+                    <div class="card-body">
+                        <h2>Waratah Flower</h2>
+                        <p>Bunga semak liar merah besar berbentuk mahkota yang megah.</p>
+                        <span class="kuliner-more">Pelajari Detail Spesies →</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="detail-flora-fauna.html?id=golden-wattle" class="card-link">
+                <div class="sejarah-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80" alt="Golden Wattle" class="card-img">
+                        <span class="card-tag">FLORA NASIONAL</span>
+                    </div>
+                    <div class="card-body">
+                        <h2>Golden Wattle</h2>
+                        <p>Bunga nasional resmi Australia dengan bunga-bunga kecil kuning cerah selembut kapas.</p>
+                        <span class="kuliner-more">Pelajari Detail Spesies →</span>
+                    </div>
+                </div>
+            </a>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

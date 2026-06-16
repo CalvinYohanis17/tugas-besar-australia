@@ -6,11 +6,15 @@
     <title>Pesona Budaya Australia — AussieCulture</title>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+</head><body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">AussieCulture.</div>
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
             
             <div class="burger-menu" id="burger-btn">
                 <div class="line1"></div>
@@ -19,35 +23,36 @@
             </div>
 
             <ul class="nav-links" id="nav-menu">
-                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
                     <div class="dropdown-content">
-                        <a href="#" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
-                        <a href="#" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
-                        <a href="#" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="detail-budaya.html?id=aborigin">Suku Aborigin</a>
+                        <a href="detail-budaya.html?id=kolonial">Seni & Kolonial</a>
                     </div>
                 </li>
-                <li><a href="kuliner.html">Kuliner</a></li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="hero container animate-fade">
-        <div class="hero-content">
-            <h1 class="text-effect">Eksplorasi<br><span class="highlight">Budaya Australia.</span></h1>
-            <p class="hero-lead">Menjembatani kisah peradaban tertua di bumi dengan mozaik modernitas kolonial modern belahan selatan dunia.</p>
+    <header class="hero animate-fade">
+        <!-- Background Hero Carousel -->
+        <div class="hero-carousel" id="hero-carousel">
+            <div class="carousel-track" id="carousel-track">
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1600&q=80');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=80');"></div>
+                <!-- Klon Slide Pertama untuk Loop Tak Terhingga -->
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1600&q=80');"></div>
+            </div>
+            <div class="carousel-overlay"></div>
         </div>
-    </header>
 
-    <main class="container">
-        
-        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
-
-    <div class="scroll-line"></div>
-
-    <header class="hero container animate-fade">
-        <div class="hero-content">
+        <div class="container hero-content">
             <h1 class="text-effect">Eksplorasi<br><span class="highlight text-gradient">Budaya Australia.</span></h1>
             <p class="hero-lead">Menjembatani kisah peradaban tertua di bumi dengan mozaik modernitas kolonial modern belahan selatan dunia.</p>
         </div>
@@ -64,7 +69,9 @@
     </div>
 
     <main class="container">
-        
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
         <section class="stats-section">
             <div class="stat-box">
                 <h3 class="stat-number" data-target="65000">0</h3>
@@ -80,7 +87,8 @@
             </div>
         </section>
 
-        <section class="sejarah-grid">
+        <!-- Arkeotipe Sejarah -->
+        <section class="sejarah-grid" id="semua">
             <div class="sejarah-card" id="card-aborigin">
                 <div class="card-img-wrapper">
                     <img src="photo/suku-aborigin.jpg" alt="Suku Aborigin Australia" class="card-img">
@@ -88,8 +96,8 @@
                 </div>
                 <div class="card-body">
                     <h2>Era Pribumi & Tradisi Kartografi Dreamtime</h2>
-                    <p>Sebelum gelombang migrasi global, daratan benua ini dijaga oleh suku Aborigin dan Penduduk Kepulauan Selat Torres. Mereka merajut ikatan spiritual tak terpisahkan melalui kisah mitologi penciptaan bumi purba.</p>
-                    <button class="btn-primary" onclick="bacaEksplorasi('aborigin')">Pelajari Dreamtime →</button>
+                    <p>Sebelum gelombang migrasi global, daratan benua ini dijaga oleh suku Aborigin dan Penduduk Kepulauan Selat Torres. Mereka merajut ikatan spiritual tak perpisahkan melalui kisah mitologi penciptaan bumi purba.</p>
+                    <a href="detail-budaya.html?id=aborigin" class="btn-primary" style="text-decoration: none; display: inline-block; text-align: center;">Pelajari Dreamtime →</a>
                 </div>
             </div>
 
@@ -101,7 +109,7 @@
                 <div class="card-body">
                     <h2>Era Kolonisasi, Arsitektur, & Fusi Modern</h2>
                     <p>Berlabuhnya Armada Pertama (First Fleet) di bawah bendera Britania Raya memicu fusi budaya baru. Relik pemukiman narapidana berasimilasi membentuk fondasi masyarakat multikultural modern Australia hari ini.</p>
-                    <button class="btn-primary" onclick="bacaEksplorasi('kolonial')">Garis Waktu Sejarah →</button>
+                    <a href="detail-budaya.html?id=kolonial" class="btn-primary" style="text-decoration: none; display: inline-block; text-align: center;">Garis Waktu Sejarah →</a>
                 </div>
             </div>
         </section>
@@ -114,9 +122,157 @@
         <section class="artefak-section">
             <div class="section-header">
                 <h2>Artefak & Simbol Budaya</h2>
-                <p style="color: #6B7280; font-size: 0.95rem;">Daftar elemen kebudayaan material yang dirender secara dinamis melalui JavaScript looping.</p>
             </div>
             <ul class="artefak-list" id="dynamic-list"></ul>
+        </section>
+
+        <!-- EKSPANSI REVISI: Galeri Kategori Kartu dengan Fitur Slide/Swipe -->
+        
+        <!-- Kategori: Destinasi Wisata -->
+        <section class="category-section animate-fade">
+            <div class="category-header">
+                <h2>Destinasi Wisata Impian</h2>
+                <a href="destinasi.html" class="see-all-link">Lihat Semua →</a>
+            </div>
+            <div class="category-scroll-container">
+                <a href="detail-destinasi.html?id=sydney-opera" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=600&q=80" alt="Sydney Opera House" class="card-img">
+                            <span class="card-tag">NEW SOUTH WALES</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Sydney Opera House</h2>
+                            <p>Ikon arsitektur modern abad ke-20 yang terkenal dengan atap cangkang putih berbentuk layar kapal.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="detail-destinasi.html?id=great-barrier-reef" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Great Barrier Reef" class="card-img">
+                            <span class="card-tag">QUEENSLAND</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Great Barrier Reef</h2>
+                            <p>Sistem terumbu karang terbesar di dunia dengan keanekaragaman hayati bawah laut yang menakjubkan.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="detail-destinasi.html?id=uluru" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Uluru" class="card-img">
+                            <span class="card-tag">NORTHERN TERRITORY</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Uluru / Ayers Rock</h2>
+                            <p>Monolit batu pasir raksasa yang sakral di jantung gurun merah (Outback) Australia.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Kategori: Flora & Fauna -->
+        <section class="category-section animate-fade">
+            <div class="category-header">
+                <h2>Flora & Fauna Endemik</h2>
+                <a href="flora-fauna.html" class="see-all-link">Lihat Semua →</a>
+            </div>
+            <div class="category-scroll-container">
+                <a href="detail-flora-fauna.html?id=kangaroo" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?auto=format&fit=crop&w=600&q=80" alt="Kangaroo" class="card-img">
+                            <span class="card-tag">FAUNA IKONIK</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Kangaroo (Kanguru)</h2>
+                            <p>Mamalia berkantung (marsupial) khas Australia yang bergerak aktif dengan cara melompat.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="detail-flora-fauna.html?id=koala" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1579710313177-3e117de2e36d?auto=format&fit=crop&w=600&q=80" alt="Koala" class="card-img">
+                            <span class="card-tag">FAUNA HERBIVOR</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Koala</h2>
+                            <p>Hewan berkantung lucu pemakan daun eukaliptus yang menghabiskan hidupnya di atas pohon.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="detail-flora-fauna.html?id=wombat" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1598416399104-e3c31bbcc048?auto=format&fit=crop&w=600&q=80" alt="Wombat" class="card-img">
+                            <span class="card-tag">FAUNA ENDEMIK</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Wombat</h2>
+                            <p>Mamalia berkantung penggali liang dengan tubuh gempal mirip beruang kecil.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Kategori: Kuliner Khas -->
+        <section class="category-section animate-fade" style="margin-bottom: 85px;">
+            <div class="category-header">
+                <h2>Kuliner Autentik Australia</h2>
+                <a href="kuliner.html" class="see-all-link">Lihat Semua →</a>
+            </div>
+            <div class="category-scroll-container">
+                <a href="vegemite.html" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1588001291548-948f2a9709f1?auto=format&fit=crop&w=600&q=80" alt="Vegemite Toast" class="card-img">
+                            <span class="card-tag">IKONIK</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Vegemite Toast</h2>
+                            <p>Selai hitam ikonik berbasis ekstrak ragi dengan rasa asin dan gurih yang kuat. Biasanya dioleskan tipis di atas roti panggang mentega.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="anzac.html" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1558961309-dbdf71799f5a?auto=format&fit=crop&w=600&q=80" alt="Anzac Biscuits" class="card-img">
+                            <span class="card-tag">HISTORIS</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Anzac Biscuits</h2>
+                            <p>Kue kering tradisional berbahan dasar gandum oat, kelapa parut, dan sirup emas yang dibuat untuk para tentara selama PD I.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="lamington.html" class="card-link">
+                    <div class="sejarah-card">
+                        <div class="card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80" alt="Lamington Cake" class="card-img">
+                            <span class="card-tag">MANIS</span>
+                        </div>
+                        <div class="card-body">
+                            <h2>Lamington Cake</h2>
+                            <p>Kue spons berbentuk kubus lembut tradisional yang dicelupkan ke lapisan saus cokelat cair dan taburan parutan kelapa kering.</p>
+                            <span class="kuliner-more">Pelajari Detail →</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
         </section>
 
         <section class="form-section">
@@ -155,13 +311,9 @@
     <footer class="footer">
         <div class="footer-container container">
             <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
-            <div class="footer-links">
-                <a href="#">Dokumentasi GitHub</a>
-                <a href="#">Daftar Sitasi</a>
-            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
