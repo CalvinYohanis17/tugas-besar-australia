@@ -129,7 +129,7 @@ const budayaData = {
     "aborigin": {
         nama: "Suku Aborigin & Tradisi Dreamtime",
         tag: "65.000+ TAHUN LALU",
-        img: "photo/suku-aborigin.jpg",
+        img: "photo/aborigin2.png",
         deskripsi: "Suku asli benua Australia dengan warisan spiritual tertua di bumi dan mitologi Dreamtime.",
         deskripsiDetail: "Suku Aborigin dan Penduduk Kepulauan Selat Torres adalah penjaga asli benua Australia dengan warisan peradaban berkelanjutan tertua yang diketahui di bumi. Hubungan mereka dengan tanah, laut, dan alam sekitar bukan sekadar kepemilikan fisik, melainkan ikatan spiritual mendalam yang telah terjalin selama puluhan ribu tahun.\n\nDreamtime (atau Alcheringa) adalah inti spiritualitas Aborigin. Ini bukan sekadar mitos masa lalu, melainkan dimensi tanpa waktu di mana leluhur purba menciptakan dunia, menetapkan hukum moral, dan membentuk lanskap alam. Kisah-kisah ini ditransmisikan secara turun-temurun melalui tradisi lisan, tarian ritual, dan seni lukis titik (dot painting) yang juga berfungsi sebagai peta navigasi teritorial rahasia untuk menemukan mata air dan jalur migrasi di Outback yang gersang.",
         elemenKunci: "Dot Painting, Didgeridoo, Kisah Dreamtime, Ritus Adat Corroboree"
@@ -137,9 +137,25 @@ const budayaData = {
     "kolonial": {
         nama: "Era Kolonialisasi & Integrasi Seni Modern",
         tag: "MULAI 1788",
-        img: "photo/captain-cook.jpg",
+        img: "photo/captain-cook2.jpg",
         deskripsi: "Fusi budaya yang dipicu kedatangan Armada Inggris, membentuk identitas multikultural Australia hari ini.",
         deskripsiDetail: "Sejarah modern Australia dimulai pada 26 Januari 1788 dengan berlabuhnya Armada Pertama (First Fleet) di bawah pimpinan Kapten Arthur Phillip di Sydney Cove, mendirikan koloni narapidana Inggris pertama. Kedatangan ini memicu asimilasi budaya yang kompleks, sering kali konfliktual dengan suku asli, tetapi juga membentuk dasar kelembagaan, hukum, dan arsitektur pemukiman baru.\n\nSelama abad ke-19, gelombang demam emas (Gold Rush) tahun 1851 menarik ribuan imigran dari seluruh penjuru dunia (termasuk Eropa dan Tiongkok), memicu transisi menjadi masyarakat demokratis dan multikultural. Warisan era kolonial ini masih terlihat jelas melalui bangunan-bangunan batu pasir bergaya Georgian, Victorian, dan Edwardian di kota-kota tua seperti Sydney (The Rocks) dan Melbourne, yang berpadu dengan perkembangan seni kontemporer modern Australia hari ini.",
         elemenKunci: "First Fleet Ship relics, Arsitektur Victorian, Eureka Rebellion, Galeri Seni Kontemporer"
+    },
+    "goldrush": {
+        nama: "Era Demam Emas (The Gold Rush)",
+        tag: "TAHUN 1851",
+        img: "photo/gold-rushes2.jpg",
+        deskripsi: "Penemuan emas masif yang mengubah drastis demografi, memicu imigrasi global, dan melahirkan gerakan buruh modern.",
+        deskripsiDetail: "Penemuan bongkahan emas pertama oleh Edward Hargraves di dekat Bathurst pada Mei 1851 menjadi katalisator perubahan paling radikal dalam sejarah Australia. Dalam sekejap, ribuan orang meninggalkan pekerjaan mereka di kota untuk menuju ladang-ladang emas di pedalaman. Fenomena ini semakin meledak ketika ladang emas yang jauh lebih besar ditemukan di Ballarat dan Bendigo, Victoria.\n\nEra Gold Rush memicu gelombang imigrasi massal terbesar sepanjang sejarah benua ini. Ratusan ribu imigran dari Inggris, Irlandia, daratan Eropa, hingga ribuan pekerja tambang dari China datang memadati pelabuhan-pelabuhan Australia, membuat populasi melonjak tiga kali lipat dalam sepuluh tahun. Namun, era ini juga memicu ketegangan sosial. Pajak lisensi penambangan yang tinggi memicu pemberontakan bersenjata 'Eureka Stockade' di Ballarat pada tahun 1854, yang menjadi tonggak sejarah lahirnya demokrasi, hak pilih, dan gerakan buruh modern di Australia.",
+        elemenKunci: "Eureka Stockade Flag, Alat Tambang Tradisional, Pemukiman Sovereign Hill, Arsitektur Victorian Megah"
+    },
+    "federasi": {
+        nama: "Lahirnya Federasi Persemakmuran",
+        tag: "TAHUN 1901",
+        img: "photo/federasi2.jpg",
+        deskripsi: "Momen bersatunya enam koloni Inggris yang terpisah menjadi satu negara Persemakmuran Australia yang berdaulat.",
+        deskripsiDetail: "Sebelum tahun 1901, Australia bukanlah sebuah negara kesatuan, melainkan wilayah yang terdiri dari enam koloni Inggris yang terpisah dan mandiri. Setiap koloni memiliki pemerintahan, sistem pertahanan, undang-undang, mata uang, bahkan tarif pajaknya sendiri yang sering kali menyulitkan mobilitas antarwilayah.\n\nKesadaran untuk bersatu mulai tumbuh pada akhir abad ke-19, didorong oleh kebutuhan akan sistem pertahanan bersama yang lebih kuat, sentimen nasionalisme sebagai satu bangsa, serta regulasi perdagangan yang seragam. Melalui rangkaian kampanye panjang, konvensi konstitusi, dan referendum rakyat yang ketat, masyarakat di keenam koloni akhirnya sepakat untuk melebur menjadi satu. Tepat pada tanggal 1 Januari 1901, Konstitusi Australia resmi disahkan di Centennial Park, Sydney, melahirkan Commonwealth of Australia dengan Sir Edmund Barton sebagai Perdana Menteri pertamanya.",
+        elemenKunci: "Dokumen Konstitusi 1901, Bendera Nasional Australia, Gedung Parlemen Lama, Centennial Park Relics"
     }
 };

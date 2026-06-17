@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pavlova Cake — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px;">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
+        <div class="back-btn-container">
+            <a href="kuliner.html" class="btn-back">← Kembali ke Kuliner</a>
+        </div>
+
+        <header class="detail-hero" style="background-image: url('photo/pavlova2.jpg');">
+            <div class="detail-hero-content">
+                <span class="card-tag">MANIS</span>
+                <h1 class="detail-title">Pavlova Cake</h1>
+            </div>
+        </header>
+
+        <div class="detail-grid">
+            <article class="detail-main">
+                <p>Pavlova adalah hidangan pencuci mulut pencipta perdebatan panjang antara Australia dan Selandia Baru mengenai hak paten asal-usulnya. Nama dessert cantik ini diambil dari nama seorang balerina legendaris asal Rusia bernama Anna Pavlova, yang melakukan tur keliling benua kangguru pada era tahun 1920-an. Tampilan visual kue ini dibuat sengaja menyerupai bentuk gaun tutu putih sang penari.</p>
+                <p>Berbeda dengan kue bolu yang menggunakan tepung sebagai bahan utama, Pavlova murni terbuat dari kocokan putih telur kaku dan gula halus (meringue) yang dipanggang dengan suhu rendah secara lambat. Metode memasak ini melahirkan kontras tekstur yang luar biasa: cangkang pelindung bagian luar menjadi sangat tipis, rapuh, dan renyah, sementara bagian jantung dalamnya tetap basah dan lembut kenyal menyerupai marsmellow.</p>
+                <p>Untuk menyeimbangkan rasa dasar meringue yang tergolong manis manis legit, bagian atas Pavlova dilapisi oleh krim kocok kental tanpa gula tambahan (unsweetened whipped cream). Di atasnya, ditaburi potongan buah-buahan segar berkarakter asam seperti markisa, kiwi, stroberi, atau raspberi. Hidangan ini menjadi primadona utama di meja makan saat perayaan hari besar atau jamuan kumpul keluarga di musim panas.</p>
+            </article>
+
+            <aside class="detail-sidebar">
+                <h3 class="sidebar-title">Fakta Kuliner</h3>
+                
+                <div class="fact-item">
+                    <div class="fact-label">Bahan Utama</div>
+                    <div class="fact-value">Putih Telur, Gula, Krim Kocok, Buah Segar (Markisa, Stroberi, Kiwi)</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Profil Rasa</div>
+                    <div class="fact-value">Manis Madu, Asam Buah Segar, Lembut di Dalam, Renyah di Luar</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Momen Spesial</div>
+                    <div class="fact-value">Sering disajikan sebagai sajian penutup wajib saat Hari Natal dan Musim Panas</div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

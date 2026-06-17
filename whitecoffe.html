@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flat White Coffee — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px;">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
+        <div class="back-btn-container">
+            <a href="kuliner.html" class="btn-back">← Kembali ke Kuliner</a>
+        </div>
+
+        <header class="detail-hero" style="background-image: url('photo/coffe2.jpg');">
+            <div class="detail-hero-content">
+                <span class="card-tag">MINUMAN</span>
+                <h1 class="detail-title">Flat White Coffee</h1>
+            </div>
+        </header>
+
+        <div class="detail-grid">
+            <article class="detail-main">
+                <p>Flat White Coffee adalah warisan dan kontribusi paling berpengaruh dari komunitas barista kafe Australia terhadap kultur penikmat kopi dunia modern (Third Wave Coffee). Lahir dan berkembang pesat di kedai-kedai kopi artisan kota Sydney dan Melbourne pada kisaran dekade 1980-an, minuman espresso susu ini dirancang untuk menjawab keinginan penikmat kopi yang menyukai kepekatan kafein tanpa tertutup busa tebal.</p>
+                <p>Secara struktur teknik barista, racikan Flat White menggunakan pondasi ekstraksi <i>double shot espresso</i> pekat, yang kemudian dikombinasikan dengan tuangan susu panas bertekstur khusus. Susu dipanaskan sedemikian rupa dengan uap hingga membentuk busa mikro (microfoam) super halus bertekstur layaknya kain beludru, bukan busa gelembung kasar berongga besar.</p>
+                <p>Hal utama yang membedakannya dari Latte adalah volume susu Flat White lebih sedikit dengan lapisan busa permukaan yang sangat tipis (datar/flat). Hal ini membuat partikel rasa susu manis alami berlemak dan pahitnya espresso menyatu rata dari dasar cangkir hingga permukaan atas, memberikan rasa kopi susu yang jauh lebih intens, padat, namun terasa lembut di tenggorokan.</p>
+            </article>
+
+            <aside class="detail-sidebar">
+                <h3 class="sidebar-title">Fakta Kuliner</h3>
+                
+                <div class="fact-item">
+                    <div class="fact-label">Komposisi Utama</div>
+                    <div class="fact-value">Double Shot Espresso / Ristretto, Susu Busa Mikro (Microfoam)</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Karakter Rasa</div>
+                    <div class="fact-value">Kopi Kuat Dominan, Sentuhan Manis Alami Susu, Tekstur Sangat Halus</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Pembeda Utama</div>
+                    <div class="fact-value">Lapisan busa atas jauh lebih tipis dan menyatu dibandingkan Cappuccino / Latte</div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

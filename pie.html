@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aussie Meat Pie — AussieCulture</title>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark-theme");
+        }
+    </script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo" style="text-decoration: none;">AussieCulture.</a>
+            
+            <div class="burger-menu" id="burger-btn">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="index.html" id="nav-home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn" id="dropdown-btn">Eksplorasi Budaya ▾</a>
+                    <div class="dropdown-content">
+                        <a href="index.html#semua" onclick="filterBudaya('semua')">Semua Arkeotipe</a>
+                        <a href="index.html#aborigin" onclick="filterBudaya('aborigin')">Suku Aborigin</a>
+                        <a href="index.html#kolonial" onclick="filterBudaya('kolonial')">Seni & Kolonial</a>
+                    </div>
+                </li>
+                <li><a href="destinasi.html" id="nav-destinasi">Destinasi</a></li>
+                <li><a href="flora-fauna.html" id="nav-flora">Flora & Fauna</a></li>
+                <li><a href="kuliner.html" id="nav-kuliner">Kuliner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container" style="padding-top: 40px;">
+        <button id="dark-mode-toggle" class="floating-btn" title="Ubah Tema">🌓</button>
+        <div class="scroll-line"></div>
+
+        <div class="back-btn-container">
+            <a href="kuliner.html" class="btn-back">← Kembali ke Kuliner</a>
+        </div>
+
+        <header class="detail-hero" style="background-image: url('photo/pie2.jpg');">
+            <div class="detail-hero-content">
+                <span class="card-tag">GURIH</span>
+                <h1 class="detail-title">Aussie Meat Pie</h1>
+            </div>
+        </header>
+
+        <div class="detail-grid">
+            <article class="detail-main">
+                <p>Aussie Meat Pie adalah makanan cepat saji paling ikonik di Australia yang berukuran personal atau sebesar telapak tangan. Kuliner ini merupakan bagian tak terpisahkan dari identitas budaya masyarakat belahan selatan, setara kedudukannya dengan burger di Amerika atau fish and chips di Inggris.</p>
+                <p>Struktur utama pai ini terdiri dari dua jenis adonan kulit luar (pastry). Bagian dasar wadahnya menggunakan <i>shortcrust pastry</i> yang padat dan kokoh agar kuah tidak bocor, sementara bagian penutup atasnya menggunakan <i>puff pastry</i> yang mengembang berlapis-lapis dan sangat renyah setelah dipanggang. Isian tradisionalnya berupa daging sapi cincang masakan lambat yang berpadu dengan kuah kaldu cokelat kental (gravy), bawang bombay, serta bumbu rempah sederhana.</p>
+                <p>Dalam kultur lokal Australia, meat pie adalah hidangan wajib yang dikonsumsi saat menonton pertandingan olahraga besar seperti laga sepak bola AFL, atau dibeli di toko roti pinggir jalan sebagai menu praktis penambah energi selama perjalanan jauh. Cara memakan yang paling otentik adalah menambahkan saus tomat botolan dalam jumlah melimpah di bagian atasnya, lalu digigit langsung menggunakan tangan selagi panas.</p>
+            </article>
+
+            <aside class="detail-sidebar">
+                <h3 class="sidebar-title">Fakta Kuliner</h3>
+                
+                <div class="fact-item">
+                    <div class="fact-label">Bahan Utama</div>
+                    <div class="fact-value">Daging Sapi Cincang, Kuah Kaldu (Gravy), Shortcrust & Puff Pastry</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Profil Rasa</div>
+                    <div class="fact-value">Gurih Daging, Asin Umami, Kaya Rempah, Kulit Renyah Bermentega</div>
+                </div>
+
+                <div class="fact-item">
+                    <div class="fact-label">Kultur Penyajian</div>
+                    <div class="fact-value">Disajikan panas dengan lumeran saus tomat merah di atas kulit pastry</div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container container">
+            <p>© 2026 Tugas Besar IN212 — Kelompok Web Dasar</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>

@@ -150,6 +150,8 @@ function animateHistoricalStats() {
 function filterBudaya(tipe) {
     const cardAborigin = document.getElementById("card-aborigin");
     const cardKolonial = document.getElementById("card-kolonial");
+    const elements = document.getElementById("fact-elements");
+    if (elements) elements.innerText = data.elemenKunci;
 
     if (!cardAborigin || !cardKolonial) return; 
 
@@ -186,7 +188,7 @@ function generateArtefakList() {
         { nama: "Didgeridoo (Yidaki)", deskripsi: "Alat musik tiup tiang kayu kuno peradaban Aborigin utara, pembuat resonansi suara spiritual bumi.", img: "photo/didgeridoo.jpg" },
         { nama: "Boomerang", deskripsi: "Senjata aerodinamis berburu tradisional yang bertransformasi menjadi simbol ritus kultural adat.", img: "photo/boomerang.png" },
         { nama: "Dot Painting", deskripsi: "Seni rupa visual berbasis simbol titik-titik rahasia untuk memetakan rute sakral nenek moyang.", img: "photo/dotpainting.jpg" },
-        { nama: "The First Fleet Relics", deskripsi: "Sisa peninggalan 11 kapal Inggris pertama tahun 1788 yang menandai titik awal era kolonisasi narapidana.", img: "photo/relics.jpg" },
+        { nama: "The First Fleet Relics", deskripsi: "Sisa peninggalan 11 kapal Inggris pertama tahun 1788 yang menandai titik awal era kolonisasi narapidana.", img: "photo/captain-cook2.jpg" },
         { nama: "Sovereign Hill Gold", deskripsi: "Artefak dan replika era Eureka Rebellion (1854), tonggak pergerakan demokrasi pekerja tambang emas Australia.", img: "photo/sovereign.jpg" }
     ];
 
