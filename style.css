@@ -1229,6 +1229,130 @@ body.dark-theme .artefak-img-placeholder {
     color: #6B7280;
 }
 
+/* ============ MASUKKAN INI KE STYLE.CSS UNTUK MENGGANTI CSS BRELOOM LAMA ============ */
+
+/* Jalur jalan mengunci di dalam kotak card-body */
+#breloom-walking-area, #koala-walking-area, #wombat-walking-area {
+    position: absolute;
+    bottom: 35px; /* Mengatur tinggi posisi jalan di atas tombol detail */
+    left: 0;
+    width: 100%; /* Lebarnya otomatis selebar kotak kartu */
+    height: 40px; /* Disesuaikan agar pas dengan ukuran teks */
+    pointer-events: none; /* Biar kartu tetap bisa diklik bebas oleh user */
+    z-index: 2;
+    overflow: hidden; /* Memotong gambar saat keluar dari batas kartu */
+}
+
+/* Base style untuk setiap Breloom */
+.walking-breloom {
+    position: absolute;
+    bottom: 0;
+    width: 35px; /* Diperkecil menjadi 35px agar pas masuk ke dalam kartu */
+    height: 35px;
+    left: -40px; /* Mulai dari luar kotak sebelah kiri */
+    z-index: 20; /* DIUBAH: Naikkan angka agar prioritas lapisan berada di atas text & link kartu */
+    pointer-events: auto;
+}
+
+.walking-breloom img {
+    width: 100%;
+    height: 100%;
+    transform: scaleX(-1); /* Membalik gambar agar menghadap ke kanan maju */
+}
+
+/* Efek Glow khusus untuk Breloom Shiny */
+.walking-breloom.is-shiny img {
+    filter: drop-shadow(0 0 5px rgba(255, 205, 0, 0.8)) brightness(1.1);
+}
+
+/* GABUNGAN ANIMASI: Berjalan Menyeberang Kotak + Melompat Kecil */
+.animate-walk {
+    animation: breloomWalksInside 6s linear forwards, breloomHopsInside 0.5s infinite ease-in-out;
+}
+
+/* Animasi Berjalan dari Kiri ke Kanan Kotak Kartu */
+@keyframes breloomWalksInside {
+    0% { left: -40px; }
+    100% { left: 100%; } /* Hilang tepat saat melewati batas kanan kotak kartu */
+}
+
+/* Animasi Melompat Kecil di dalam kotak */
+@keyframes breloomHopsInside {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); } /* Lompat pendek agar rapi */
+}
+
+/* Animasi Mengunci Klik setelah ditangkap */
+.caught-ball {
+    pointer-events: none; /* Biar ga bisa diklik berkali-kali */
+    animation: pokeballShake 0.5s ease-in-out 3; /* Bergoyang 3 kali */
+}
+
+/* Animasi Goyang Pokeball (Shake) */
+@keyframes pokeballShake {
+    0%, 100% { transform: rotate(0deg); }
+    20% { transform: rotate(-15deg); }
+    40% { transform: rotate(15deg); }
+    60% { transform: rotate(-10deg); }
+    80% { transform: rotate(10deg); }
+}
+
+/* Kotak Notifikasi Toast Sukses Tangkap */
+.pokemon-toast {
+    position: fixed;
+    top: 20px;
+    right: -300px; /* Sembunyi di luar layar kanan */
+    background: linear-gradient(135deg, #111111, #222222);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #FFCD00; /* Warna emas khas Australia */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s;
+}
+
+/* Ikon Pokeball kecil di dalam Notifikasi */
+.pokemon-toast img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Kelas untuk memunculkan Notifikasi */
+.pokemon-toast.show {
+    right: 20px;
+}
+
+body, 
+nav, 
+.sejarah-card, 
+.card-body, 
+h2, 
+h3, 
+p, 
+a {
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+#dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    outline: none;
+}
+
+/* Efek putar 180 derajat saat class ini aktif */
+#dark-mode-toggle.rotate-active {
+    transform: rotate(180deg);
+}
+
 @media (max-width: 640px) {
     .artefak-item {
         flex-direction: column;

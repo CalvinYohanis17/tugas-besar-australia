@@ -410,3 +410,114 @@ function loadBudayaDetail() {
             .join("");
     }
 }
+
+function spawnPokemon(areaId, pokemonName) {
+    const area = document.getElementById(areaId);
+    if (!area) return;
+
+    const pokemon = document.createElement('div');
+    pokemon.classList.add('walking-breloom'); 
+
+    const isShiny = Math.random() < 0.2; 
+    let displayName = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+    if (isShiny) displayName = "Shiny " + displayName;
+    
+    // SAKTI: Deklarasikan img di sini agar bisa diakses oleh event listener klik di bawah
+    const img = document.createElement('img');
+    
+    if (isShiny) {
+        pokemon.classList.add('is-shiny');
+        img.src = `photo/${pokemonName}-shiny.webp`;
+        img.alt = `Wild Shiny ${pokemonName}`;
+    } else {
+        img.src = `photo/${pokemonName}-normal.webp`;
+        img.alt = `Wild ${pokemonName}`;
+    }
+
+    pokemon.appendChild(img);
+    area.appendChild(pokemon);
+    pokemon.classList.add('animate-walk');
+
+    // LOGIKA KLIK (DITANGKAP)
+    // LOGIKA KLIK (DITANGKAP) - VERSI FIX TERKUNCI
+    pokemon.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        e.stopPropagation();
+        
+        // SAKTI: Ambil posisi koordinat X persis saat Pokémon di-klik sebelum animasinya dimatikan
+        const currentLeft = pokemon.getBoundingClientRect().left - area.getBoundingClientRect().left;
+        
+        // Matikan animasi jalan
+        pokemon.style.animation = 'none';
+        pokemon.classList.remove('animate-walk');
+        
+        // Kunci posisi Pokémon di koordinat terakhirnya agar tidak mental kembali ke luar layar (-40px)
+        pokemon.style.left = `${currentLeft}px`;
+        
+        // Langsung ganti gambar ke pokeball-catch yang bercahaya
+        img.src = 'photo/pokeball-catch.png';
+        img.style.transform = 'none'; // Reset arah balik gambar
+        
+        // Munculkan Notifikasi Sukses
+        showCatchNotification(displayName);
+        
+        // Beri jeda 1 detik, lalu hilangkan secara halus (fade out)
+        setTimeout(() => {
+            pokemon.style.transition = 'opacity 0.5s ease';
+            pokemon.style.opacity = '0';
+            
+            // Hapus elemen dari HTML setelah fade out selesai
+            setTimeout(() => pokemon.remove(), 500);
+        }, 1000);
+    });
+
+    const runTimeout = setTimeout(() => {
+        pokemon.remove();
+    }, 6000); 
+
+    pokemon.addEventListener('click', () => {
+        clearTimeout(runTimeout);
+    });
+
+    const nextSpawnTime = Math.random() * (25000 - 15000) + 15000;
+    setTimeout(() => spawnPokemon(areaId, pokemonName), nextSpawnTime);
+}
+
+// FUNGSI UNTUK MEMUNCULKAN NOTIFIKASI TOAST DI POJOK LAYAR
+function showCatchNotification(pokemonName) {
+    // Buat elemen toast secara dinamis lewat JS agar tidak perlu mengotori HTML utama
+    const toast = document.createElement('div');
+    toast.classList.add('pokemon-toast');
+    toast.innerHTML = `<img src="photo/pokeball.png" alt="ball"> Gotcha! Maverick caught a Wild ${pokemonName}!`;
+    
+    document.body.appendChild(toast);
+    
+    // Picu animasi muncul dari kanan
+    setTimeout(() => toast.classList.add('show'), 100);
+    
+    // Sembunyikan dan hapus notifikasi setelah 4 detik
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 500);
+    }, 4000);
+}
+
+// Jalankan sistem spawn otomatis saat web dimuat
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => spawnPokemon('breloom-walking-area', 'breloom'), 2000); 
+    setTimeout(() => spawnPokemon('koala-walking-area', 'komala'), 5000);   
+    setTimeout(() => spawnPokemon('wombat-walking-area', 'bidoof'), 8000);  
+});
+
+// ====== IMPLEMENTASI ANIMASI TOMBOL DI INDEX.JS ======
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+if (darkModeToggle) {
+    darkModeToggle.addEventListener('click', () => {
+        // 1. Logika ganti tema kamu yang sudah ada (jangan dihapus)
+        document.body.classList.toggle('dark-mode'); 
+        
+        // 2. TAMBAHKAN INI: Picu rotasi emojinya
+        darkModeToggle.classList.toggle('rotate-active');
+    });
+}
