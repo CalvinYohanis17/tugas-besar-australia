@@ -175,11 +175,30 @@ body {
 }
 
 /* --- FITUR: Grid Layout & Cards --- */
-.sejarah-grid, .kuliner-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Konsep Mobile First */
-    gap: 40px;
-    margin-bottom: 80px;
+@media (max-width: 768px) {
+    /* 1. Mengubah pembungkus kartu sejarah/konten agar turun ke bawah */
+    .timeline, .sejara-grid, .kuliner-grid, main.container, .container { 
+        display: flex !important;
+        flex-direction: column !important; /* Memaksa elemen menyusun satu-satu ke bawah */
+        gap: 20px !important;              /* Memberi jarak vertikal antar kartu */
+        padding: 0 15px !important;        /* Memberi jarak aman dari tepi layar HP */
+    }
+
+    /* 2. Mengatur agar lebar setiap kartu menjadi penuh satu layar HP */
+    .sejarah-card, .card-link, .destinasi-card, .kuliner-card {
+        width: 100% !important;            /* Kartu memenuhi lebar layar HP */
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+        margin-bottom: 10px;
+    }
+    
+    /* 3. Menyesuaikan ukuran font spanduk utama agar tidak kebesaran di HP */
+    .text-effect {
+        font-size: 2rem !important;        /* Mengecilkan ukuran judul jumbotron di HP */
+    }
+    .hero-carousel, .destinasi-carousel-hero, .flora-banner-box {
+        height: 300px !important;          /* Menurunkan tinggi banner agar proporsional di HP */
+    }
 }
 
 .card-link {
@@ -1301,7 +1320,7 @@ body.dark-theme .artefak-img-placeholder {
 .pokemon-toast {
     position: fixed;
     top: 20px;
-    right: -300px; /* Sembunyi di luar layar kanan */
+    right: -300px; 
     background: linear-gradient(135deg, #111111, #222222);
     color: #ffffff;
     padding: 12px 20px;
